@@ -63,12 +63,13 @@ const HEAD = (title, desc) => `<!DOCTYPE html>
 /* ---------- tarjeta de péptido ---------- */
 function card(p) {
   const cat = categories[p.category] || { label: "", icon: "" };
+  const chem = structures[p.slug];
+  const visual = chem ? `<div class="pcard-molecule">
+          <img src="${esc(chem.image)}" alt="Estructura química de ${esc(chem.label)}" loading="lazy" />
+        </div>` : `<div class="pcard-icon">${cat.icon}</div>`;
   return `      <a class="pcard" data-category="${p.category}" href="/peptides/${p.slug}/">
-        <div class="pcard-visual">
-          <img src="/assets/images/peptide-cards/${esc(p.slug)}.svg" alt="Ilustración conceptual de ${esc(p.name)}" loading="lazy" />
-        </div>
         <div class="pcard-top">
-          <div class="pcard-icon">${cat.icon}</div>
+          ${visual}
           <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
         </div>
         <h3>${esc(p.name)}</h3>
