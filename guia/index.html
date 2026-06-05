@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La guía Péptidos Sin Caos — entiende antes de experimentar | $29</title>
+<meta name="description" content="Guía educativa para principiantes: qué son los péptidos, su origen, cómo leer evidencia, unidades, reconstitución y riesgos. Un mapa para pensar, no un protocolo. $29." />
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="Péptidos Sin Caos — la guía para principiantes" />
+<meta property="og:description" content="Entiende los péptidos sin perderte entre foros, dosis confusas y claims exagerados." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/styles.css" />
+<style>
+  .guia-hero { background: linear-gradient(180deg, var(--mint-soft), var(--bg)); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .qcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .qcard.yes { border-top: 3px solid var(--brand); }
+  .qcard.no { border-top: 3px solid var(--ev-comunidad); }
+  .qcard ul { list-style: none; padding: 0; margin: 0; }
+  .qcard li { padding: 8px 0; display: flex; gap: 10px; font-size: .96rem; color: var(--ink-2); }
+  .qcard.yes li::before { content: "✓"; color: var(--brand); font-weight: 700; }
+  .qcard.no li::before { content: "✕"; color: var(--ev-comunidad); font-weight: 700; }
+  .incluye { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .inc { display: flex; gap: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .inc .n { font-family: "Sora",sans-serif; font-weight: 700; color: var(--brand); flex-shrink: 0; }
+  .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 4px 20px; margin-bottom: 12px; }
+  .faq summary { font-family: "Sora",sans-serif; font-weight: 600; cursor: pointer; padding: 16px 0; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-size: 1.4rem; color: var(--brand); transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding-bottom: 16px; margin: 0; color: var(--muted); }
+  .story { background: var(--surface-2); }
+  .story-quote { font-family: "Sora",sans-serif; font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 600; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--brand); padding-left: 22px; margin: 0 0 22px; }
+  .origin-card { background: linear-gradient(135deg, var(--ink), #16302b); color: #fff; border-radius: var(--radius-lg); padding: clamp(32px,5vw,52px); }
+  .origin-card h2 { color: #fff; }
+  .origin-card p { color: rgba(255,255,255,.82); }
+  .origin-card .eyebrow { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-in">
+    <a class="brand" href="/"><span class="brand-mark">Ψ</span><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
+    <nav class="nav-links">
+      <a href="/#catalogo">Péptidos</a>
+      <a href="/#como">Cómo funciona</a>
+      <a href="#incluye">Qué incluye</a>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-primary" href="#precio">Obtener la guía · $29</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section guia-hero">
+  <div class="container center" style="max-width:820px">
+    <span class="eyebrow">La guía para principiantes</span>
+    <h1>Péptidos Sin Caos</h1>
+    <p class="lead" style="margin:14px auto 26px">La guía que explica qué son, de dónde vienen, cómo leer la evidencia y qué riesgos vigilar — <strong>antes</strong> de experimentar a ciegas.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="#precio">Obtener la guía · $29</a>
+      <a class="btn btn-ghost btn-lg" href="#incluye">Ver qué incluye</a>
+    </div>
+    <p style="font-size:.86rem;color:var(--muted);margin-top:16px">PDF educativo + checklists descargables. No vendemos sustancias ni protocolos médicos.</p>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="section">
+  <div class="container center reveal" style="max-width:760px">
+    <span class="eyebrow">El problema</span>
+    <h2>El problema no es falta de información. Es exceso de información sin orden.</h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto">Foros, podcasts y cheat sheets pueden ayudarte… o confundirte. Terminas viendo dosis, siglas, viales y experiencias personales sin saber qué es evidencia, qué es anécdota y qué puede ser peligroso.</p>
+  </div>
+</section>
+
+<!-- DOLOR (bajar de peso de adulto) -->
+<section class="section" style="background:var(--surface-2)">
+  <div class="container" style="max-width:820px">
+    <div class="center reveal">
+      <span class="eyebrow">Si esto te suena…</span>
+      <h2>Bajar de peso de adulto —<br>y mantenerlo— es brutal</h2>
+    </div>
+    <div class="reveal" style="margin-top:26px">
+      <p class="lead" style="margin-left:auto;margin-right:auto">Probaste dietas. Probaste ayuno (<em>fasting</em>). Y funciona… hasta que el cuerpo se planta: llegas a un <strong>plató</strong>, el estrés se acumula, y si el ayuno no se hace bien, también tiene su costo y sus riesgos. Después de cierta edad, el metabolismo, las hormonas y la recuperación dejan de jugar a tu favor — y lo que antes funcionaba, ya no alcanza.</p>
+      <p style="text-align:center;color:var(--ink-2)">El ayuno y la dieta <strong>siguen siendo herramientas</strong> — de hecho las usamos dentro de la guía. Pero por sí solas, para muchos adultos, ya no son suficientes. Ahí es donde entender bien estas otras herramientas cambia el juego.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGEN (gancho) -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="origin-card reveal">
+      <span class="eyebrow">Lo que vas a entender</span>
+      <h2>El origen secreto que casi nadie te cuenta</h2>
+      <p class="lead" style="color:rgba(255,255,255,.86);max-width:64ch">En plena Guerra Fría, la Unión Soviética buscó crear un "súper-soldado" que se recuperara más rápido y resistiera más. Un coronel médico, <strong style="color:#fff">Vladimir Khavinson</strong>, recibió el encargo de proteger a las tropas de la radiación y los láseres de batalla — y en el proceso ayudó a fundar la ciencia moderna de los péptidos. Investigación secreta durante dos décadas, desclasificada al caer la URSS. Esa historia, contada con precisión, es donde empieza la guía.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section class="section" id="incluye" style="background:var(--surface-2)">
+  <div class="container">
+    <div class="center reveal" style="max-width:680px;margin:0 auto">
+      <span class="eyebrow">Qué incluye</span>
+      <h2>Un mapa claro, de principio a fin</h2>
+    </div>
+    <div class="incluye reveal" style="margin-top:40px">
+      <div class="inc"><span class="n">01</span><div><strong>Qué es un péptido, de verdad</strong><br><span style="color:var(--muted);font-size:.92rem">El "lenguaje del cuerpo" explicado simple.</span></div></div>
+      <div class="inc"><span class="n">02</span><div><strong>La historia y el origen</strong><br><span style="color:var(--muted);font-size:.92rem">De los laboratorios secretos soviéticos a hoy.</span></div></div>
+      <div class="inc"><span class="n">03</span><div><strong>Evidencia vs. marketing</strong><br><span style="color:var(--muted);font-size:.92rem">Cómo distinguir ciencia, clínica y anécdota.</span></div></div>
+      <div class="inc"><span class="n">04</span><div><strong>Unidades, viales y reconstitución</strong><br><span style="color:var(--muted);font-size:.92rem">mg vs mcg, agua bacteriostática, almacenamiento.</span></div></div>
+      <div class="inc"><span class="n">05</span><div><strong>Cómo evaluar un proveedor</strong><br><span style="color:var(--muted);font-size:.92rem">Criterios de calidad y señales de alerta.</span></div></div>
+      <div class="inc"><span class="n">06</span><div><strong>Triage de efectos secundarios</strong><br><span style="color:var(--muted);font-size:.92rem">Qué observar: seguir, pausar o buscar ayuda.</span></div></div>
+      <div class="inc"><span class="n">07</span><div><strong>Módulo GH peptides</strong><br><span style="color:var(--muted);font-size:.92rem">Tesamorelin, ipamorelin, CJC, sermorelin, MK-677.</span></div></div>
+      <div class="inc"><span class="n">08</span><div><strong>Preguntas para tu médico</strong><br><span style="color:var(--muted);font-size:.92rem">Llega preparado, no a ciegas.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="section">
+  <div class="container">
+    <div class="two-col reveal">
+      <div class="qcard yes">
+        <h3>Es para ti si…</h3>
+        <ul>
+          <li>Estás empezando desde cero y quieres entender antes de usar algo.</li>
+          <li>Te confunden los foros y los protocolos contradictorios.</li>
+          <li>Quieres mejores preguntas para tu médico o farmacia.</li>
+          <li>Quieres distinguir el riesgo real del miedo vago.</li>
+        </ul>
+      </div>
+      <div class="qcard no">
+        <h3>No es para ti si…</h3>
+        <ul>
+          <li>Buscas un proveedor de sustancias.</li>
+          <li>Quieres que alguien te diga exactamente qué inyectarte.</li>
+          <li>Buscas promesas rápidas o resultados de la noche a la mañana.</li>
+          <li>No estás dispuesto a consultar a un profesional ante un riesgo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA DE ROBERTO -->
+<section class="section story">
+  <div class="container reveal" style="max-width:760px">
+    <span class="eyebrow">Por qué existe esta guía</span>
+    <p class="story-quote">"La creé porque yo también me topé con el mismo problema: demasiada información, demasiados protocolos sueltos y muy poca estructura para alguien que apenas empieza."</p>
+    <p>No me presento como médico ni como autoridad clínica. Soy un investigador práctico que ha pasado por foros, cheat sheets, videos largos y fuentes oficiales — y documenté el proceso con criterio y cautela. En mi propio camino bajé más de 30 libras en aproximadamente un año, combinando herramientas, ejercicio y constancia. La lección más importante que aprendí, y que vas a encontrar en esta guía: <strong>nada pasa de la noche a la mañana.</strong> No vendo sustancias ni protocolos. Ordeno la información para que pienses mejor, hagas mejores preguntas y evites errores básicos.</p>
+    <p style="color:var(--muted);font-size:.95rem">— Roberto Portillo</p>
+  </div>
+</section>
+
+<!-- LA VERDAD (no es magia) -->
+<section class="section">
+  <div class="container" style="max-width:820px">
+    <div class="center reveal">
+      <span class="eyebrow">Honestidad por delante</span>
+      <h2>Los péptidos no son una solución mágica</h2>
+    </div>
+    <div class="reveal" style="margin-top:26px">
+      <p class="lead" style="margin-left:auto;margin-right:auto">No reemplazan dormir bien, comer comida que de verdad nutra tu cuerpo, ni hacer ejercicio. Nada lo hace. Quien busca un atajo que sustituya lo básico se va a decepcionar.</p>
+      <p style="text-align:center;color:var(--ink-2)">Pero <strong>sí son una herramienta valiosa</strong> — siempre y cuando puedas conseguirlos y asegurarte de que son de <strong>buena calidad</strong>. Y esto es crítico: un péptido de mala calidad no solo no sirve, <strong>puede ser veneno</strong>. Con calidad, tiempo y disciplina, el cuerpo de una persona de 30, 40 o 50+ puede tener <strong>cambios significativos</strong>. No es magia: es constancia con las herramientas correctas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="section" id="precio">
+  <div class="container">
+    <div class="cta-wrap reveal">
+      <div class="cta-grid">
+        <div>
+          <span class="eyebrow" style="color:var(--teal)">Acceso inicial</span>
+          <h2>Empieza a entender hoy</h2>
+          <p class="lead">Precio inicial de validación. Subirá conforme agreguemos los módulos de GLP-1/metabólicos y healing peptides — quien entra hoy, entra al mejor precio.</p>
+        </div>
+        <div class="price-card">
+          <div class="price">$29<small> / acceso inicial</small></div>
+          <ul>
+            <li>Guía para principiantes (PDF)</li>
+            <li>Módulo GH Peptides</li>
+            <li>Checklists descargables</li>
+            <li>Actualizaciones iniciales del proyecto</li>
+          </ul>
+          <a class="btn btn-primary" href="#" style="width:100%" data-checkout>Comprar la guía · $29</a>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.7);margin:12px 0 0;text-align:center">Pago seguro · garantía de 7 días</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" style="background:var(--surface-2)">
+  <div class="container" style="max-width:760px">
+    <div class="center reveal"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que la gente pregunta</h2></div>
+    <div class="reveal" style="margin-top:36px">
+      <details><summary>¿Es esto consejo médico?</summary><p>No. Es una guía educativa para ayudarte a entender conceptos, riesgos y preguntas. No reemplaza a un médico, farmacia ni evaluación individual.</p></details>
+      <details><summary>¿Incluye protocolos exactos de dosis?</summary><p>No como prescripción. Explica cómo leer información, comparar opciones y detectar riesgos. Cualquier decisión personal debe revisarse con un profesional.</p></details>
+      <details><summary>¿Venden péptidos?</summary><p>No. No vendemos sustancias ni somos un directorio de proveedores.</p></details>
+      <details><summary>¿Para quién es la primera versión?</summary><p>Para principiantes — en especial personas confundidas por los GH peptides que quieren entender las bases antes de explorar GLP-1s o healing peptides.</p></details>
+      <details><summary>¿Habrá actualizaciones?</summary><p>Sí. La primera versión incluye roadmap y actualizaciones iniciales conforme agregamos módulos.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <div class="container">
+    <p><strong>Aviso educativo.</strong> Esta guía es solo educativa. No diagnostica, trata, cura ni previene enfermedades, ni ofrece consejo médico personalizado, instrucciones de uso individual ni venta de sustancias. Consulta a un profesional de salud calificado antes de tomar decisiones relacionadas con medicamentos, péptidos, hormonas, inyecciones, suplementos o tratamientos.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border:0;padding-top:0">
+      <span>© 2026 Roberto Portillo · mrportillo.com</span>
+      <a href="/" style="color:var(--teal)">← Inicio</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

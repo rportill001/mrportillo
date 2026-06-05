@@ -1,0 +1,344 @@
+/* ===========================================================
+   Péptidos Sin Caos — sistema de diseño
+   Limpio y moderno (tipo Apple) pero con movimiento.
+   Paleta salud/ciencia: grafito + verde profundo + azul petróleo.
+   =========================================================== */
+
+:root {
+  /* superficies */
+  --bg:        #FAFCFB;
+  --surface:   #FFFFFF;
+  --surface-2: #F1F6F4;
+  --line:      #E4ECEA;
+  --line-soft: #EEF3F2;
+
+  /* tinta */
+  --ink:    #0D1A18;
+  --ink-2:  #2C3B38;
+  --muted:  #5E6E6A;
+
+  /* marca */
+  --brand:      #0E7C66;   /* verde profundo */
+  --brand-deep: #0A4A3E;
+  --petrol:     #0B6E7A;   /* azul petróleo */
+  --teal:       #14B8A6;
+  --mint:       #DCF1EA;
+  --mint-soft:  #EEF8F4;
+
+  /* evidencia */
+  --ev-establecido: #0E7C66;
+  --ev-clinico:     #0B6E8F;
+  --ev-comunidad:   #B07515;
+  --ev-especulativo:#6B7280;
+
+  /* sistema */
+  --radius-sm: 11px;
+  --radius:    18px;
+  --radius-lg: 26px;
+  --shadow-sm: 0 1px 2px rgba(13,26,24,.05), 0 2px 6px rgba(13,26,24,.04);
+  --shadow:    0 14px 36px rgba(11,74,62,.10);
+  --shadow-lg: 0 28px 64px rgba(11,74,62,.16);
+  --ring:      0 0 0 4px rgba(20,184,166,.16);
+
+  --nav-h: 70px;
+  --maxw: 1180px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, .display {
+  font-family: "Sora", "Inter", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 .4em;
+}
+h1 { font-size: clamp(2.4rem, 6vw, 4.1rem); }
+h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
+h3 { font-size: 1.25rem; letter-spacing: -0.01em; }
+p  { margin: 0 0 1rem; color: var(--ink-2); }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.section   { padding: clamp(64px, 9vw, 110px) 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Sora", sans-serif; font-weight: 600;
+  font-size: .76rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--brand); margin-bottom: 16px;
+}
+.eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--brand); border-radius: 2px; }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 60ch; }
+.center { text-align: center; }
+.center .lead, .center .eyebrow { margin-left: auto; margin-right: auto; }
+
+/* ---------- botones ---------- */
+.btn {
+  --bg: var(--brand);
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-family: "Sora", sans-serif; font-weight: 600; font-size: .98rem;
+  padding: 14px 26px; border-radius: 999px; border: 1px solid transparent;
+  cursor: pointer; transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .2s;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--brand); color: #fff; box-shadow: 0 10px 24px rgba(14,124,102,.28); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(14,124,102,.36); background: #0c6e5a; }
+.btn-ghost { background: rgba(255,255,255,.6); color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { transform: translateY(-2px); background: #fff; box-shadow: var(--shadow-sm); }
+.btn-light { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.28); }
+.btn-light:hover { transform: translateY(-2px); background: rgba(255,255,255,.22); }
+.btn-lg { padding: 17px 34px; font-size: 1.05rem; }
+
+/* ---------- navbar ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+  background: rgba(250,252,251,.78); backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s;
+}
+.nav.scrolled { border-color: var(--line); box-shadow: var(--shadow-sm); }
+.nav-in { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.brand { display: flex; align-items: center; gap: 11px; font-family: "Sora",sans-serif; font-weight: 700; letter-spacing: -.02em; font-size: 1.08rem; }
+.brand-mark {
+  width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--brand), var(--petrol)); color: #fff;
+  font-size: 1.1rem; box-shadow: 0 6px 16px rgba(11,110,122,.30);
+}
+.brand small { display: block; font-family: "Inter",sans-serif; font-weight: 500; font-size: .68rem; letter-spacing: .04em; color: var(--muted); }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { font-family: "Sora",sans-serif; font-weight: 500; font-size: .94rem; color: var(--ink-2); transition: color .2s; }
+.nav-links a:hover { color: var(--brand); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding: clamp(54px, 9vw, 96px) 0 clamp(60px,8vw,90px); }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(48% 60% at 78% 6%, rgba(20,184,166,.16), transparent 60%),
+    radial-gradient(40% 55% at 10% 90%, rgba(11,110,122,.12), transparent 60%),
+    var(--bg);
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5;
+  background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 46px 46px; mask-image: radial-gradient(70% 60% at 60% 20%, #000, transparent 75%);
+}
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: center; }
+.hero h1 span { background: linear-gradient(120deg, var(--brand), var(--teal) 55%, var(--petrol)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { font-size: 1.2rem; margin-bottom: 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 18px 26px; color: var(--muted); font-size: .9rem; }
+.hero-trust span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-trust b { color: var(--brand); }
+
+/* tarjeta flotante del hero */
+.hero-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg); padding: 24px; position: relative;
+  animation: floaty 7s ease-in-out infinite;
+}
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.hero-card h4 { font-family: "Sora",sans-serif; font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 14px; }
+.hc-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line-soft); }
+.hc-row:first-of-type { border-top: 0; }
+.hc-name { font-family: "Sora",sans-serif; font-weight: 600; }
+.hc-name small { display: block; color: var(--muted); font-weight: 400; font-family: "Inter",sans-serif; font-size: .8rem; }
+
+/* ---------- chips de evidencia / categoría ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: "Sora",sans-serif; font-weight: 600; font-size: .72rem; letter-spacing: .02em;
+  padding: 5px 11px; border-radius: 999px; line-height: 1;
+}
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .9; }
+.ev-establecido { color: var(--ev-establecido); background: rgba(14,124,102,.10); }
+.ev-clinico     { color: var(--ev-clinico);     background: rgba(11,110,143,.10); }
+.ev-comunidad   { color: var(--ev-comunidad);   background: rgba(176,117,21,.12); }
+.ev-especulativo{ color: var(--ev-especulativo);background: rgba(107,114,128,.12); }
+
+/* ---------- filtros ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 34px 0 44px; }
+.chip {
+  font-family: "Sora",sans-serif; font-weight: 500; font-size: .92rem;
+  padding: 10px 20px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink-2); cursor: pointer;
+  transition: all .22s var(--ease);
+}
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+.chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* ---------- grid de péptidos ---------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pcard {
+  display: flex; flex-direction: column; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+  position: relative; overflow: hidden;
+}
+.pcard::after {
+  content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--teal)); transform: scaleX(0); transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+.pcard:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+.pcard:hover::after { transform: scaleX(1); }
+.pcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.pcard-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.3rem; background: var(--mint-soft); }
+.pcard h3 { margin: 0 0 2px; }
+.pcard .aka { color: var(--muted); font-size: .85rem; margin: 0 0 12px; }
+.pcard .goal { color: var(--ink-2); font-size: .96rem; margin: 0 0 16px; flex-grow: 1; }
+.pcard-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+.pcard-foot .more { font-family: "Sora",sans-serif; font-weight: 600; font-size: .9rem; color: var(--brand); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
+.pcard:hover .pcard-foot .more { gap: 11px; }
+.cat-tag { font-size: .78rem; color: var(--muted); }
+
+/* ---------- bloque CTA / guía ---------- */
+.cta-wrap {
+  position: relative; overflow: hidden; border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--brand-deep), var(--petrol)); color: #fff;
+  padding: clamp(40px, 6vw, 68px); box-shadow: var(--shadow-lg);
+}
+.cta-wrap::before { content:""; position:absolute; inset:0; z-index:0; background: radial-gradient(40% 70% at 85% 10%, rgba(20,184,166,.30), transparent 60%); }
+.cta-wrap > * { position: relative; z-index: 1; }
+.cta-wrap h2 { color: #fff; }
+.cta-wrap .lead { color: rgba(255,255,255,.86); }
+.cta-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+.price-card { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.20); border-radius: var(--radius); padding: 28px; backdrop-filter: blur(6px); }
+.price-card .price { font-family: "Sora",sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; }
+.price-card .price small { font-size: 1rem; font-weight: 500; opacity: .8; }
+.price-card ul { list-style: none; padding: 0; margin: 18px 0 22px; }
+.price-card li { padding: 7px 0; display: flex; gap: 10px; font-size: .95rem; color: rgba(255,255,255,.9); }
+.price-card li::before { content: "✓"; color: var(--teal); font-weight: 700; }
+
+/* ---------- captura de correo ---------- */
+.signup { display: flex; gap: 10px; max-width: 480px; }
+.signup input { flex: 1; padding: 15px 18px; border-radius: 999px; border: 1px solid var(--line); font: inherit; background: var(--surface); }
+.signup input:focus { outline: none; border-color: var(--teal); box-shadow: var(--ring); }
+
+/* ---------- feature row ---------- */
+.features { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: transform .3s var(--ease), box-shadow .3s; }
+.feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+.feature .ic { width: 50px; height: 50px; border-radius: 14px; display:grid; place-items:center; font-size: 1.4rem; background: var(--mint-soft); margin-bottom: 16px; }
+.feature h3 { margin-bottom: 8px; }
+.feature p { font-size: .96rem; margin: 0; }
+
+/* ---------- disclaimer ---------- */
+.disclaimer { background: var(--surface-2); border-top: 1px solid var(--line); }
+.disclaimer .container { padding-top: 28px; padding-bottom: 28px; }
+.disclaimer p { font-size: .86rem; color: var(--muted); margin: 0; max-width: 90ch; }
+
+/* ---------- footer ---------- */
+.footer { background: var(--ink); color: rgba(255,255,255,.72); padding: 56px 0 34px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 34px; }
+.footer h5 { font-family:"Sora",sans-serif; color:#fff; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin:0 0 14px; }
+.footer a { display: block; padding: 5px 0; color: rgba(255,255,255,.66); transition: color .2s; font-size: .94rem; }
+.footer a:hover { color: var(--teal); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; font-size: .82rem; color: rgba(255,255,255,.5); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+/* =========================================================
+   Página de detalle de péptido
+   ========================================================= */
+.detail-hero { background: linear-gradient(180deg, var(--mint-soft), var(--bg)); border-bottom: 1px solid var(--line); }
+.detail-hero .container { padding-top: 46px; padding-bottom: 46px; }
+.back-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-family:"Sora",sans-serif; font-weight:500; font-size:.9rem; margin-bottom: 22px; transition: gap .2s,color .2s; }
+.back-link:hover { color: var(--brand); gap: 11px; }
+.detail-head { display: flex; align-items: flex-start; gap: 20px; }
+.detail-head .pcard-icon { width: 64px; height: 64px; font-size: 1.9rem; flex-shrink: 0; }
+.detail-head h1 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); margin: 0 0 6px; }
+.detail-head .aka { color: var(--muted); font-size: 1rem; margin: 0 0 14px; }
+.detail-badges { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.detail-grid { display: grid; grid-template-columns: 1.6fr .9fr; gap: 40px; align-items: start; }
+.detail-main .block { margin-bottom: 30px; }
+.detail-main h2 { font-size: 1.4rem; margin-bottom: 10px; }
+.detail-main .micro { font-family:"Sora",sans-serif; font-size:.76rem; text-transform:uppercase; letter-spacing:.12em; color: var(--brand); margin-bottom: 8px; }
+.risk-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+.risk-list li { display:flex; gap:11px; align-items:flex-start; background: var(--surface); border:1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 15px; font-size:.95rem; }
+.risk-list li::before { content:"⚠"; color: var(--ev-comunidad); }
+
+.detail-aside { position: sticky; top: calc(var(--nav-h) + 18px); display: grid; gap: 18px; }
+.aside-card { background: var(--surface); border:1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); }
+.aside-card h4 { font-family:"Sora",sans-serif; font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color: var(--muted); margin:0 0 14px; }
+.aside-row { display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-top:1px solid var(--line-soft); font-size:.92rem; }
+.aside-row:first-of-type { border-top:0; }
+.aside-row span:first-child { color: var(--muted); }
+.aside-row span:last-child { font-weight:600; text-align:right; }
+.aside-cta { background: linear-gradient(135deg, var(--brand-deep), var(--petrol)); color:#fff; }
+.aside-cta h4 { color: rgba(255,255,255,.8); }
+.aside-cta p { color: rgba(255,255,255,.88); font-size:.92rem; }
+
+/* =========================================================
+   Animaciones de aparición
+   ========================================================= */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-card { max-width: 420px; }
+  .grid, .features { grid-template-columns: repeat(2,1fr); }
+  .cta-grid, .detail-grid { grid-template-columns: 1fr; }
+  .detail-aside { position: static; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: grid; }
+  .grid, .features, .footer-grid { grid-template-columns: 1fr; }
+  .signup { flex-direction: column; }
+  .signup input, .signup .btn { width: 100%; }
+}
+
+/* ---------- tarjetas de categoría (home) ---------- */
+.cat-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 44px; }
+.cat-card { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s; }
+.cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+.cat-ic { width: 56px; height: 56px; border-radius: 15px; display: grid; place-items: center; font-size: 1.7rem; background: var(--mint-soft); margin-bottom: 18px; }
+.cat-card h3 { margin-bottom: 8px; }
+.cat-card p { font-size: .95rem; color: var(--muted); flex-grow: 1; margin: 0; }
+.cat-count { font-family: "Sora",sans-serif; font-weight: 600; color: var(--brand); margin-top: 16px; display:inline-flex; align-items:center; gap:6px; transition: gap .2s; }
+.cat-card:hover .cat-count { gap: 11px; }
+
+/* ---------- página /peptidos/ ---------- */
+.cat-section { padding: clamp(44px,6vw,72px) 0; }
+.cat-section + .cat-section { border-top: 1px solid var(--line); }
+.cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.cat-head .pcard-icon { width: 58px; height: 58px; font-size: 1.7rem; }
+.cat-head h2 { margin: 0; }
+.cat-context { max-width: 78ch; color: var(--ink-2); font-size: 1.02rem; line-height: 1.7; margin-bottom: 32px; }
+.cat-context strong { color: var(--brand-deep); font-weight: 700; }
+.anchor-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.anchor-nav .chip { text-decoration: none; }
+
+/* ---------- bloque pathway en ficha ---------- */
+.pathway-box { background: linear-gradient(135deg, var(--mint-soft), var(--surface)); border: 1px solid var(--line); border-left: 3px solid var(--brand); border-radius: var(--radius-sm); padding: 18px 20px; color: var(--ink-2); }
+.pathway-box strong { color: var(--brand-deep); }
+
+@media (max-width: 920px) {
+  .cat-cards { grid-template-columns: 1fr; }
+}

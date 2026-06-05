@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "brand": "Péptidos Sin Caos",
+    "author": "Roberto Portillo",
+    "tagline": "Entiende los péptidos sin perderte entre foros, dosis confusas y claims exagerados.",
+    "source": "Matriz Maestra de Péptidos (investigación interna). Contenido educativo, no consejo médico."
+  },
+  "evidenceLevels": {
+    "establecido": { "label": "Establecido", "desc": "Etiqueta oficial, guías clínicas o datos humanos fuertes." },
+    "clinico": { "label": "Clínico / emergente", "desc": "Datos humanos limitados, investigación activa, incertidumbre." },
+    "comunidad": { "label": "Comunidad / anécdota", "desc": "Experiencia de foros y usuarios; evidencia humana limitada." },
+    "especulativo": { "label": "Especulativo", "desc": "Mecanismo teórico o extrapolación animal/in vitro." }
+  },
+  "categories": {
+    "gh": {
+      "label": "Hormona de crecimiento",
+      "icon": "⚡",
+      "blurb": "Péptidos que reactivan tus propios pulsos de hormona de crecimiento.",
+      "context": "La **hormona de crecimiento (GH)** es la señal que tu cuerpo usa para reparar tejido, recuperarse y mantener masa magra. Se libera en **pulsos**, sobre todo de noche, y llega a su pico en la juventud. A partir de los **~25–30 años empieza a declinar** (cerca de 1–2% por año), un fenómeno llamado *somatopausa*. Por eso muchas personas notan más cambios después de los 30: estos péptidos buscan **reactivar tus propios pulsos de GH** en vez de inyectar la hormona directa. Y la medida que de verdad importa no es \"más GH\", sino tu **IGF-1** — el promedio real de la actividad de la hormona de crecimiento en tu cuerpo."
+    },
+    "metabolic": {
+      "label": "Metabólico / GLP-1",
+      "icon": "🔥",
+      "blurb": "Compuestos ligados a pérdida de grasa, apetito y control de glucosa.",
+      "context": "No todos los \"GLP\" son iguales. **GLP-1** significa *glucagon-like peptide-1*: una hormona del intestino que regula el **apetito, la saciedad y la glucosa**. La **semaglutida** imita esa sola hormona. La **tirzepatida** suma una segunda, **GIP**, por eso es un *agonista dual* y suele ser más potente. La **retatrutida** añade una tercera, el **glucagón** (que aumenta el gasto de energía), volviéndose un *triple agonista* — muy potente, pero todavía en investigación. Ojo: algunos ni siquiera son \"GLP\" (la cagrilintida es un análogo de amilina). El mecanismo, la evidencia y los riesgos **cambian en cada uno**."
+    },
+    "healing": {
+      "label": "Reparación / Recovery",
+      "icon": "🌱",
+      "blurb": "Péptidos asociados a recuperación de tejido, piel y articulaciones.",
+      "context": "Los péptidos de reparación **no \"construyen músculo\" por sí solos**: actúan sobre las vías que el cuerpo usa para sanar — *angiogénesis* (formar vasos nuevos), migración de células y control de la inflamación. La mayor parte de su evidencia es **preclínica o de comunidad**, así que las expectativas deben ser realistas. Importan sobre todo cuando entrenas fuerte o te recuperas más lento — algo que se acentúa con la edad."
+    }
+  },
+  "peptides": [
+    {
+      "slug": "tesamorelin", "name": "Tesamorelin", "aka": "", "category": "gh",
+      "goal": "Grasa visceral y soporte del eje GH",
+      "mechanism": "Análogo de GHRH: estimula la liberación natural de hormona de crecimiento.",
+      "pathway": "Imita la GHRH (la hormona liberadora de GH del hipotálamo) y le dice a tu hipófisis que produzca tu propia GH en pulsos naturales — no inyectas GH directa. Aprobado de forma específica para reducir grasa visceral.",
+      "evidenceLevel": "establecido",
+      "evidenceNote": "Establecido para una indicación médica específica; otros usos requieren cuidado.",
+      "risks": ["Retención de líquidos", "Dolor articular", "Cambios en glucosa / IGF-1", "Reacciones locales y posible reacción alérgica"],
+      "storage": "Seguir etiqueta/farmacia. La versión oficial se usa de inmediato tras reconstituir.",
+      "release": 1, "priority": "Alta", "featured": true
+    },
+    {
+      "slug": "ipamorelin", "name": "Ipamorelin", "aka": "", "category": "gh",
+      "goal": "Sueño, recuperación y composición corporal",
+      "mechanism": "Agonista del receptor de ghrelina (GHSR): estimula pulsos de hormona de crecimiento.",
+      "pathway": "Activa el receptor de ghrelina (GHSR) — una segunda \"palanca\" del eje GH, distinta a la GHRH. Provoca un pulso de GH limpio y se considera selectivo (toca poco el cortisol o el apetito). Por eso suele combinarse con un análogo de GHRH como el CJC.",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente más experiencia de comunidad.",
+      "risks": ["Fatiga", "Flush (rubor)", "Hambre", "Hinchazón", "Palpitaciones reportadas"],
+      "storage": "Verificar concentración y diluyente; no copiar unidades sin calcular.",
+      "release": 1, "priority": "Alta", "featured": true
+    },
+    {
+      "slug": "cjc-mod-grf", "name": "CJC / mod-GRF", "aka": "CJC-1295 (sin DAC)", "category": "gh",
+      "goal": "Soporte de GH, suele combinarse con ipamorelin",
+      "mechanism": "Análogo de GHRH; frecuentemente combinado con un secretagogo de ghrelina.",
+      "pathway": "Análogo de GHRH de acción corta (sin DAC): amplifica el pulso natural de GH **respetando tu ritmo** (no lo mantiene elevado todo el tiempo). La versión \"con DAC\" sí es de acción prolongada. Combinado con ipamorelin, las dos palancas del eje GH trabajan en sinergia.",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente más comunidad. DAC vs no-DAC cambia la interpretación.",
+      "risks": ["Retención", "Hormigueo", "Fatiga", "Cambios en glucosa / IGF-1"],
+      "storage": "Confirmar producto exacto (DAC vs no-DAC) antes de cualquier cálculo.",
+      "release": 1, "priority": "Alta", "featured": false
+    },
+    {
+      "slug": "sermorelin", "name": "Sermorelin", "aka": "", "category": "gh",
+      "goal": "Soporte de GH, perfil más conservador",
+      "mechanism": "Estimula la liberación endógena de hormona de crecimiento.",
+      "pathway": "Análogo de GHRH más corto y suave. Suele presentarse como la opción \"de entrada\" para el **declive de GH asociado a la edad**, por su perfil conservador.",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente.",
+      "risks": ["Reacciones locales", "Flushing", "Mareo", "Cambios en IGF-1 / glucosa"],
+      "storage": "Seguir indicaciones de farmacia/producto.",
+      "release": 1, "priority": "Media", "featured": false
+    },
+    {
+      "slug": "mk-677", "name": "MK-677", "aka": "Ibutamoren", "category": "gh",
+      "goal": "GH / IGF-1, apetito y masa (oral)",
+      "mechanism": "Agonista de ghrelina/GHSR de administración oral. No es un péptido inyectable.",
+      "pathway": "Activa el receptor de ghrelina pero **por vía oral** (no es un péptido inyectable). Sube GH e IGF-1 de forma sostenida y aumenta el apetito. Tiene datos clínicos, pero no es un \"HGH oral seguro\".",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente; es una molécula oral, no un vial.",
+      "risks": ["Hambre marcada", "Edema", "Glucosa / insulina", "Somnolencia"],
+      "storage": "No aplica como vial; cuidar mucho el sourcing y la calidad.",
+      "release": 1, "priority": "Media", "featured": false
+    },
+    {
+      "slug": "semaglutide", "name": "Semaglutide", "aka": "Ozempic / Wegovy", "category": "metabolic",
+      "goal": "Pérdida de peso y control de glucosa",
+      "mechanism": "Agonista de GLP-1.",
+      "pathway": "Imita el **GLP-1** (glucagon-like peptide-1), una hormona intestinal que reduce el apetito, aumenta la saciedad, baja la glucosa y enlentece el vaciado del estómago. Es un medicamento aprobado: trátalo como tal, no como un vial cualquiera.",
+      "evidenceLevel": "establecido",
+      "evidenceNote": "Establecido para indicaciones médicas aprobadas.",
+      "risks": ["Náusea y vómito", "Constipación", "Advertencia de páncreas/vesícula", "Pérdida muscular si se maneja mal"],
+      "storage": "Seguir etiqueta/farmacia; no improvisar microdosing.",
+      "release": 2, "priority": "Alta", "featured": true
+    },
+    {
+      "slug": "tirzepatide", "name": "Tirzepatide", "aka": "Mounjaro / Zepbound", "category": "metabolic",
+      "goal": "Pérdida de peso y control de glucosa",
+      "mechanism": "Agonista dual GIP / GLP-1.",
+      "pathway": "**Agonista dual:** activa a la vez el receptor de **GIP** y el de **GLP-1** — dos hormonas \"incretinas\" del intestino. Atacar las dos a la vez suele dar mejor control de apetito y glucosa que un GLP-1 solo. Aprobado.",
+      "evidenceLevel": "establecido",
+      "evidenceNote": "Establecido para indicaciones médicas aprobadas.",
+      "risks": ["Efectos gastrointestinales", "Advertencia de páncreas/vesícula", "Supresión de apetito excesiva"],
+      "storage": "Seguir etiqueta/farmacia.",
+      "release": 2, "priority": "Alta", "featured": false
+    },
+    {
+      "slug": "retatrutide", "name": "Retatrutide", "aka": "LY3437943 (no es \"GLP-3\")", "category": "metabolic",
+      "goal": "Pérdida de peso / metabólico (investigacional)",
+      "mechanism": "Triple agonista GIP / GLP-1 / glucagón. En investigación.",
+      "pathway": "**Triple agonista:** suma a GIP y GLP-1 un tercer receptor, el del **glucagón**, que aumenta el gasto de energía. Esa tercera vía explica por qué es tan potente en los ensayos — pero sigue siendo **investigacional** (no aprobado). No es \"GLP-3\".",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente e investigacional. No presentarlo como 'GLP-3'.",
+      "risks": ["Efectos gastrointestinales", "Frecuencia cardiaca", "Incertidumbre de seguridad (investigacional)"],
+      "storage": "Alto cuidado: es un compuesto en investigación.",
+      "release": 2, "priority": "Alta con cautela", "featured": false
+    },
+    {
+      "slug": "mots-c", "name": "MOTS-c", "aka": "", "category": "metabolic",
+      "goal": "Energía y metabolismo",
+      "mechanism": "Péptido mitocondrial señalizador.",
+      "pathway": "Péptido de origen **mitocondrial**: señaliza a la \"central energética\" de la célula para mejorar el metabolismo y la sensibilidad a la insulina. Evidencia temprana; conviene no exagerar los claims.",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Entre clínico/emergente y especulativo según el claim.",
+      "risks": ["Fatiga", "Reacciones locales", "Incertidumbre a largo plazo"],
+      "storage": "Confirmar vial y concentración.",
+      "release": 2, "priority": "Media", "featured": false
+    },
+    {
+      "slug": "bpc-157", "name": "BPC-157", "aka": "", "category": "healing",
+      "goal": "Tendón, intestino y recuperación de lesiones",
+      "mechanism": "Péptido derivado de una proteína gástrica; mecanismos de reparación reportados.",
+      "pathway": "Deriva de una proteína protectora del estómago. Se asocia a **angiogénesis** (formar vasos nuevos) y señales de reparación que favorecerían la recuperación de tendón e intestino. Evidencia mayormente **preclínica**; en humanos aún es limitada.",
+      "evidenceLevel": "comunidad",
+      "evidenceNote": "Comunidad más preclínico fuerte; evidencia humana limitada.",
+      "risks": ["Calidad / sourcing", "Expectativas exageradas", "Reacciones locales"],
+      "storage": "Confirmar producto; no confundir ruta ni concentración.",
+      "release": 3, "priority": "Alta", "featured": true
+    },
+    {
+      "slug": "tb-500", "name": "TB-500", "aka": "Thymosin β4", "category": "healing",
+      "goal": "Tendón, tejido blando y recuperación",
+      "mechanism": "Relacionado con thymosin beta-4, actina y señalización de reparación.",
+      "pathway": "Fragmento ligado a la **thymosin beta-4**. Regula la *actina* (el andamiaje de la célula) y la migración celular, procesos clave en la reparación de tejido blando. Evidencia mayormente preclínica y de comunidad.",
+      "evidenceLevel": "comunidad",
+      "evidenceNote": "Comunidad más preclínico; evidencia humana limitada.",
+      "risks": ["Incertidumbre a largo plazo", "Reacciones", "Calidad del producto"],
+      "storage": "Confirmar producto.",
+      "release": 3, "priority": "Alta", "featured": false
+    },
+    {
+      "slug": "kpv", "name": "KPV", "aka": "fragmento α-MSH", "category": "healing",
+      "goal": "Inflamación, intestino y piel",
+      "mechanism": "Tripéptido relacionado con el extremo de la α-MSH; efectos antiinflamatorios reportados.",
+      "pathway": "Es el extremo (lisina-prolina-valina) de la hormona **α-MSH**. Se asocia a una acción **antiinflamatoria** a nivel de intestino y piel, calmando vías inflamatorias dentro de la célula. Evidencia preclínica/emergente; la vía de uso (tópico vs sistémico) cambia mucho el panorama.",
+      "evidenceLevel": "comunidad",
+      "evidenceNote": "Emergente/preclínico más comunidad.",
+      "risks": ["Evidencia humana limitada", "Reacciones locales", "Eficacia depende de la vía de uso"],
+      "storage": "Confirmar producto y vía (tópico vs sistémico).",
+      "release": 3, "priority": "Media", "featured": false
+    },
+    {
+      "slug": "ghk-cu", "name": "GHK-Cu", "aka": "Copper peptide", "category": "healing",
+      "goal": "Piel, cabello y soporte de cicatrización",
+      "mechanism": "Péptido de cobre asociado a remodelación y reparación.",
+      "pathway": "Péptido que transporta **cobre**. Se asocia a remodelación de la matriz de la piel, colágeno y reparación. Muy usado en cosmética **tópica**; la vía inyectable cambia por completo el perfil de uso y riesgo.",
+      "evidenceLevel": "clinico",
+      "evidenceNote": "Clínico/emergente; tópico vs inyectable cambia todo.",
+      "risks": ["Irritación", "Carga de cobre", "Reacciones locales"],
+      "storage": "Tópico vs inyectable cambia el manejo por completo.",
+      "release": 3, "priority": "Media", "featured": false
+    }
+  ]
+}
