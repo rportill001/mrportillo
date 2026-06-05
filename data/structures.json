@@ -1,0 +1,119 @@
+{
+  "tesamorelin": {
+    "label": "Tesamorelin",
+    "cid": "16137828",
+    "image": "/assets/images/structures/tesamorelin.png",
+    "formula": "C221H366N72O67S",
+    "molecularWeight": "5136",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/16137828"
+  },
+  "ipamorelin": {
+    "label": "Ipamorelin",
+    "cid": "9831659",
+    "image": "/assets/images/structures/ipamorelin.png",
+    "formula": "C38H49N9O5",
+    "molecularWeight": "711.9",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/9831659"
+  },
+  "cjc-mod-grf": {
+    "label": "Modified GRF (1-29) / CJC no DAC",
+    "cid": "56841945",
+    "image": "/assets/images/structures/cjc-mod-grf.png",
+    "formula": "C152H252N44O42",
+    "molecularWeight": "3367.9",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/56841945"
+  },
+  "sermorelin": {
+    "label": "Sermorelin",
+    "cid": "16132413",
+    "image": "/assets/images/structures/sermorelin.png",
+    "formula": "C149H246N44O42S",
+    "molecularWeight": "3357.9",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/16132413"
+  },
+  "mk-677": {
+    "label": "Ibutamoren / MK-677",
+    "cid": "178024",
+    "image": "/assets/images/structures/mk-677.png",
+    "formula": "C27H36N4O5S",
+    "molecularWeight": "528.7",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/178024"
+  },
+  "semaglutide": {
+    "label": "Semaglutide",
+    "cid": "56843331",
+    "image": "/assets/images/structures/semaglutide.png",
+    "formula": "C187H291N45O59",
+    "molecularWeight": "4114",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/56843331"
+  },
+  "tirzepatide": {
+    "label": "Tirzepatide",
+    "cid": "166567236",
+    "image": "/assets/images/structures/tirzepatide.png",
+    "formula": "C225H348N48O68",
+    "molecularWeight": "4813",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/166567236"
+  },
+  "retatrutide": {
+    "label": "Retatrutide / LY3437943",
+    "cid": "171390338",
+    "image": "/assets/images/structures/retatrutide.png",
+    "formula": "C221H342N46O68",
+    "molecularWeight": "4731",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/171390338"
+  },
+  "mots-c": {
+    "label": "MOTS-c",
+    "cid": "146675088",
+    "image": "/assets/images/structures/mots-c.png",
+    "formula": "C101H152N28O22S2",
+    "molecularWeight": "2174.6",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/146675088"
+  },
+  "bpc-157": {
+    "label": "BPC-157",
+    "cid": "9941957",
+    "image": "/assets/images/structures/bpc-157.png",
+    "formula": "C62H98N16O22",
+    "molecularWeight": "1419.5",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/9941957"
+  },
+  "tb-500": {
+    "label": "TB-500",
+    "cid": "62707662",
+    "image": "/assets/images/structures/tb-500.png",
+    "formula": "C38H68N10O14",
+    "molecularWeight": "889.0",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/62707662"
+  },
+  "kpv": {
+    "label": "KPV / Lys-Pro-Val",
+    "cid": "125672",
+    "image": "/assets/images/structures/kpv.png",
+    "formula": "C16H30N4O4",
+    "molecularWeight": "342.43",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/125672"
+  },
+  "ghk-cu": {
+    "label": "GHK-Cu",
+    "cid": "139035031",
+    "image": "/assets/images/structures/ghk-cu.png",
+    "formula": "C14H21CuN6O4-",
+    "molecularWeight": "400.90",
+    "sourceName": "PubChem",
+    "sourceUrl": "https://pubchem.ncbi.nlm.nih.gov/compound/139035031"
+  }
+}

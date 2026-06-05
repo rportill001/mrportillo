@@ -13,12 +13,14 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const db = JSON.parse(readFileSync(join(ROOT, "data", "peptides.json"), "utf8"));
+const structures = JSON.parse(readFileSync(join(ROOT, "data", "structures.json"), "utf8"));
 const { peptides, categories, evidenceLevels } = db;
 const CAT_ORDER = ["gh", "metabolic", "healing"];
 
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const evClass = (lvl) => `ev-${lvl}`;
 const evLabel = (lvl) => evidenceLevels[lvl]?.label ?? lvl;
+const formula = (s = "") => esc(s).replace(/(\d+)/g, "<sub>$1</sub>");
 // negritas **texto** -> <strong>; cursivas *texto* -> <em>
 const md = (s = "") => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
 
@@ -139,8 +141,22 @@ ${FOOT}
 function detailPage(p) {
   const cat = categories[p.category] || { label: "", icon: "" };
   const ev = evidenceLevels[p.evidenceLevel] || {};
+  const chem = structures[p.slug];
   const risks = (p.risks || []).map((r) => `        <li>${esc(r)}</li>`).join("\n");
   const releaseLabel = { 1: "Release 1 · GH", 2: "Release 2 · Metabólico", 3: "Release 3 · Healing" }[p.release] || "—";
+  const structureCard = chem ? `      <div class="aside-card molecule-card">
+        <div class="mol-top">
+          <h4>Estructura molecular</h4>
+          <span>2D</span>
+        </div>
+        <img src="${esc(chem.image)}" alt="Estructura química 2D de ${esc(chem.label)}" loading="lazy" />
+        <div class="mol-meta">
+          <strong>${esc(chem.label)}</strong>
+          <span>${formula(chem.formula)} · ${esc(chem.molecularWeight)} Da</span>
+          <a href="${esc(chem.sourceUrl)}" target="_blank" rel="noopener noreferrer">PubChem CID ${esc(chem.cid)}</a>
+        </div>
+      </div>
+` : "";
   return `${HEAD(`${p.name} — qué es, mecanismo, evidencia y riesgos | Péptidos Sin Caos`, `${p.name}: ${p.goal}. ${p.mechanism} Nivel de evidencia: ${evLabel(p.evidenceLevel)}. Información educativa.`)}
 
 ${NAV}
@@ -190,6 +206,10 @@ ${risks}
     </div>
 
     <aside class="detail-aside">
+${structureCard}      <div class="aside-card structure-note">
+        <h4>Lectura correcta</h4>
+        <p>La imagen molecular identifica el compuesto; no implica calidad, pureza, seguridad del vial ni que sea adecuado para una persona.</p>
+      </div>
       <div class="aside-card">
         <h4>Ficha rápida</h4>
         <div class="aside-row"><span>Categoría</span><span>${cat.label}</span></div>
