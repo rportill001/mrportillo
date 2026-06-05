@@ -64,6 +64,9 @@ const HEAD = (title, desc) => `<!DOCTYPE html>
 function card(p) {
   const cat = categories[p.category] || { label: "", icon: "" };
   return `      <a class="pcard" data-category="${p.category}" href="/peptides/${p.slug}/">
+        <div class="pcard-visual">
+          <img src="/assets/images/peptide-cards/${esc(p.slug)}.svg" alt="Ilustración conceptual de ${esc(p.name)}" loading="lazy" />
+        </div>
         <div class="pcard-top">
           <div class="pcard-icon">${cat.icon}</div>
           <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
@@ -147,9 +150,10 @@ function detailPage(p) {
   const structureCard = chem ? `      <div class="aside-card molecule-card">
         <div class="mol-top">
           <h4>Estructura molecular</h4>
-          <span>2D</span>
         </div>
-        <img src="${esc(chem.image)}" alt="Estructura química 2D de ${esc(chem.label)}" loading="lazy" />
+        <div class="mol-image">
+          <img src="${esc(chem.image)}" alt="Estructura química de ${esc(chem.label)}" loading="lazy" />
+        </div>
         <div class="mol-meta">
           <strong>${esc(chem.label)}</strong>
           <span>${formula(chem.formula)} · ${esc(chem.molecularWeight)} Da</span>

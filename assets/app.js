@@ -21,6 +21,15 @@
     });
   }
 
+  // Ajuste de anclas con navbar sticky e imágenes que cargan tarde.
+  var scrollToHash = function () {
+    if (!window.location.hash) { return; }
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) { target.scrollIntoView({ block: "start" }); }
+  };
+  window.addEventListener("load", function () { setTimeout(scrollToHash, 60); });
+  window.addEventListener("hashchange", function () { setTimeout(scrollToHash, 20); });
+
   // Aparición al hacer scroll
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {
