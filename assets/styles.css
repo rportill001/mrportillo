@@ -5,40 +5,41 @@
    =========================================================== */
 
 :root {
-  /* superficies */
-  --bg:        #FAFCFB;
-  --surface:   #FFFFFF;
-  --surface-2: #F1F6F4;
-  --line:      #E4ECEA;
-  --line-soft: #EEF3F2;
+  /* superficies — azul marino premium */
+  --bg:        #081325;
+  --surface:   #0E1E38;
+  --surface-2: #0A1A30;
+  --line:      #21385C;
+  --line-soft: #172A48;
 
-  /* tinta */
-  --ink:    #0D1A18;
-  --ink-2:  #2C3B38;
-  --muted:  #5E6E6A;
+  /* tinta — claro sobre azul */
+  --ink:    #EAF2FF;
+  --ink-2:  #C4D5EF;
+  --muted:  #8298BC;
 
-  /* marca */
-  --brand:      #0E7C66;   /* verde profundo */
-  --brand-deep: #0A4A3E;
-  --petrol:     #0B6E7A;   /* azul petróleo */
-  --teal:       #14B8A6;
-  --mint:       #DCF1EA;
-  --mint-soft:  #EEF8F4;
+  /* marca — celestes + cian + dorado */
+  --brand:      #3DA5F0;   /* celeste brillante (acento primario) */
+  --brand-deep: #1E6FC0;   /* azul medio */
+  --petrol:     #2BC4D6;   /* cian */
+  --teal:       #2DD4BF;   /* turquesa */
+  --gold:       #E6B24A;   /* dorado — contraste premium */
+  --mint:       #12325A;
+  --mint-soft:  #102744;
 
-  /* evidencia */
-  --ev-establecido: #0E7C66;
-  --ev-clinico:     #0B6E8F;
-  --ev-comunidad:   #B07515;
-  --ev-especulativo:#6B7280;
+  /* evidencia — brillantes para resaltar en oscuro */
+  --ev-establecido: #34D399;
+  --ev-clinico:     #38BDF8;
+  --ev-comunidad:   #E6B24A;
+  --ev-especulativo:#94A3B8;
 
   /* sistema */
   --radius-sm: 11px;
   --radius:    18px;
   --radius-lg: 26px;
-  --shadow-sm: 0 1px 2px rgba(13,26,24,.05), 0 2px 6px rgba(13,26,24,.04);
-  --shadow:    0 14px 36px rgba(11,74,62,.10);
-  --shadow-lg: 0 28px 64px rgba(11,74,62,.16);
-  --ring:      0 0 0 4px rgba(20,184,166,.16);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+  --shadow:    0 16px 40px rgba(0,0,0,.45);
+  --shadow-lg: 0 30px 70px rgba(0,0,0,.55);
+  --ring:      0 0 0 4px rgba(61,165,240,.28);
 
   --nav-h: 70px;
   --maxw: 1180px;
@@ -461,3 +462,51 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
 @media (max-width: 920px) {
   .cat-cards { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   TEMA OSCURO — ajustes finos de componentes (azul marino)
+   ========================================================= */
+.nav { background: rgba(8,19,37,.72); }
+.nav.scrolled { border-color: var(--line); box-shadow: 0 10px 34px rgba(0,0,0,.45); }
+
+.btn-primary { box-shadow: 0 10px 26px rgba(61,165,240,.30); }
+.btn-primary:hover { background: #2E8FE0; box-shadow: 0 16px 34px rgba(61,165,240,.40); }
+.btn-ghost { background: rgba(255,255,255,.05); color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { background: rgba(255,255,255,.10); }
+
+/* botón de compra en dorado — el CTA que más debe resaltar */
+.nav-cta .btn-primary, .price-card .btn-primary {
+  background: linear-gradient(135deg, #F0C260, var(--gold));
+  color: #2A1E06; box-shadow: 0 10px 26px rgba(230,178,74,.32);
+}
+.nav-cta .btn-primary:hover, .price-card .btn-primary:hover {
+  background: linear-gradient(135deg, #F4CC74, #EBBC5A); box-shadow: 0 16px 34px rgba(230,178,74,.42);
+}
+
+.hero::before {
+  background:
+    radial-gradient(52% 60% at 80% 2%, rgba(61,165,240,.22), transparent 60%),
+    radial-gradient(46% 56% at 6% 94%, rgba(43,196,214,.14), transparent 60%),
+    var(--bg);
+}
+.hero::after { opacity: .30; }
+.hero-img { border-color: rgba(255,255,255,.10); }
+.hero-card-overlay { background: rgba(13,28,52,.90); }
+.hero-visual::before { background: linear-gradient(135deg, rgba(61,165,240,.18), rgba(43,196,214,.12)); }
+
+.chip.active { background: var(--brand); color: #061427; border-color: var(--brand); }
+
+.ev-establecido { background: rgba(52,211,153,.14); }
+.ev-clinico     { background: rgba(56,189,248,.14); }
+.ev-comunidad   { background: rgba(230,178,74,.16); }
+.ev-especulativo{ background: rgba(148,163,184,.16); }
+
+.text-ic, .cat-context strong, .pathway-box strong, .detail-main .micro { color: var(--brand); }
+.eyebrow, .eyebrow::before { color: var(--brand); }
+.eyebrow::before { background: var(--gold); }
+
+.footer { background: #060F1F; }
+.detail-hero { background: linear-gradient(180deg, rgba(61,165,240,.08), var(--bg)); }
+
+/* las estructuras químicas mantienen fondo claro para que la molécula se lea */
+.pcard-molecule, .pcard-molecule img, .mol-image, .mol-image img { background: #F4F8FF; }
