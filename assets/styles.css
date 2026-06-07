@@ -512,3 +512,46 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
 
 /* las estructuras químicas mantienen fondo claro para que la molécula se lea */
 .pcard-molecule, .pcard-molecule img, .mol-image, .mol-image img { background: #F4F8FF; }
+
+/* =========================================================
+   HERO con banner + LIQUID GLASS (inspiración Palantir / Apple)
+   ========================================================= */
+.hero-banner { padding: 0; min-height: clamp(540px, 78vh, 760px); display: flex; align-items: center; }
+.hero-banner::before, .hero-banner::after { display: none; }
+.hero-bg { position: absolute; inset: 0; z-index: -2; background-image: url(/assets/images/hero-banner.png); background-size: cover; background-position: 70% center; }
+.hero-veil { position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, var(--bg) 0%, rgba(8,19,37,.92) 26%, rgba(8,19,37,.55) 54%, rgba(8,19,37,.12) 100%),
+    linear-gradient(0deg, var(--bg) 0%, transparent 36%);
+}
+.hero-content { max-width: 560px; padding: 50px 0; }
+.hero-banner h1 { text-shadow: 0 2px 24px rgba(0,0,0,.45); }
+
+/* liquid glass reutilizable */
+.glass {
+  background: rgba(12,26,48,.50);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 50px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.09);
+}
+
+/* nav más translúcido (liquid glass) */
+.nav { background: rgba(8,19,37,.55); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); }
+
+/* tarjetas con un toque más glass */
+.hero-card-overlay { background: rgba(12,26,48,.55); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border-color: rgba(255,255,255,.12); }
+.price-card { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+
+/* logo del tigre en el nav (badge para contraste sobre el azul marino) */
+.brand-mark.logo-img {
+  width: 46px; height: 46px; padding: 2px; background: #EEF4FF; border-radius: 13px;
+  object-fit: contain; box-shadow: 0 4px 14px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.10);
+}
+
+@media (max-width: 920px) {
+  .hero-banner { min-height: auto; padding: 44px 0; }
+  .hero-bg { background-position: 76% center; }
+  .hero-veil { background: linear-gradient(180deg, rgba(8,19,37,.45), rgba(8,19,37,.90) 62%, var(--bg)); }
+  .hero-content { max-width: 100%; }
+}

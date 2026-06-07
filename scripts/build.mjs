@@ -26,7 +26,7 @@ const md = (s = "") => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").r
 
 const NAV = `<header class="nav">
   <div class="container nav-in">
-    <a class="brand" href="/"><span class="brand-mark">Ψ</span><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
+    <a class="brand" href="/"><img class="brand-mark logo-img" src="/assets/brand/logo-tigre.png" alt="Péptidos Sin Caos" /><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
     <nav class="nav-links">
       <a href="/peptidos/">Péptidos</a>
       <a href="/#como">Cómo funciona</a>
