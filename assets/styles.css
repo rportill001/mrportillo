@@ -543,11 +543,14 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
 .hero-card-overlay { background: rgba(12,26,48,.55); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border-color: rgba(255,255,255,.12); }
 .price-card { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
 
-/* logo del tigre en el nav (badge para contraste sobre el azul marino) */
+/* logo claro del tigre en el nav (flota sobre el azul marino, sin medallón) */
 .brand-mark.logo-img {
-  width: 46px; height: 46px; padding: 2px; background: #EEF4FF; border-radius: 13px;
-  object-fit: contain; box-shadow: 0 4px 14px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.10);
+  width: 60px; height: 60px; padding: 0; background: transparent; border-radius: 0;
+  object-fit: contain; box-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.5));
 }
+.nav .brand { gap: 13px; }
+.detail-head .pcard-icon, .cat-head .pcard-icon { } /* sin cambios */
 
 @media (max-width: 920px) {
   .hero-banner { min-height: auto; padding: 44px 0; }
