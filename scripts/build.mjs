@@ -28,6 +28,7 @@ const NAV = `<header class="nav">
   <div class="container nav-in">
     <a class="brand" href="/"><img class="brand-mark logo-img" src="/assets/brand/logo-tigre.png" alt="Péptidos Sin Caos" /><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
     <nav class="nav-links">
+      <a href="/glp1/">GLP-1 / Bajar de peso</a>
       <a href="/peptidos/">Péptidos</a>
       <a href="/#como">Cómo funciona</a>
       <a href="/guia/">La guía</a>
