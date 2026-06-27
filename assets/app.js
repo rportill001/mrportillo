@@ -60,20 +60,56 @@
     });
   }
 
-  // Captura de correo (placeholder: aún sin backend en Fase 1)
+  // Captura de correo — POST real a /api/subscribe (Cloudflare Pages Function)
   var forms = document.querySelectorAll("form[data-signup]");
   forms.forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var email = form.querySelector("input[type=email]");
-      var note = form.querySelector(".signup-note");
-      if (email && email.value && /.+@.+\..+/.test(email.value)) {
-        if (note) { note.textContent = "¡Listo! Te avisaremos cuando abramos la guía. ✨"; note.style.color = "var(--brand)"; }
-        email.value = "";
-      } else if (note) {
-        note.textContent = "Escribe un correo válido, porfa.";
-        note.style.color = "#B07515";
+      var btn = form.querySelector("button[type=submit]");
+      var note = form.querySelector(".signup-note") ||
+                 (form.parentNode && form.parentNode.querySelector(".signup-note"));
+      function setNote(msg, color) { if (note) { note.textContent = msg; note.style.color = color; } }
+
+      if (!email || !email.value || !/.+@.+\..+/.test(email.value)) {
+        setNote("Escribe un correo válido, porfa.", "#B07515");
+        return;
       }
+
+      var btnLabel = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Enviando…"; }
+      setNote("Enviando…", "var(--muted)");
+
+      fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.value.trim(),
+          source: form.getAttribute("data-source") || "general",
+          page: location.pathname,
+          referrer: document.referrer || "",
+          submittedAt: new Date().toISOString()
+        })
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            return { ok: res.ok, data: data };
+          });
+        })
+        .then(function (r) {
+          if (r.ok && r.data && r.data.ok) {
+            setNote("¡Listo! Te avisaremos cuando abramos la Guía GLP. ✨", "var(--brand)");
+            email.value = "";
+          } else {
+            setNote("Algo falló de nuestro lado. Probá de nuevo en un momento.", "#B07515");
+          }
+        })
+        .catch(function () {
+          setNote("No se pudo conectar. Revisá tu internet e intentá de nuevo.", "#B07515");
+        })
+        .finally(function () {
+          if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+        });
     });
   });
 })();
