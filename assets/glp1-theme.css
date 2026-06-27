@@ -50,8 +50,9 @@ body.theme-wellness .nav-links a { color: var(--ink-2); }
 body.theme-wellness .nav-links a:hover { color: var(--brand); }
 body.theme-wellness .brand span { color: var(--ink); }
 body.theme-wellness .brand small { color: var(--muted); }
-/* el tigre blanco se oculta hasta tener el nuevo logo (Flor de la Vida). Wordmark verde mientras tanto. */
-body.theme-wellness .brand-mark.logo-img { display: none; }
+/* logo Brote Sagrado (Flor de la Vida) — full color sobre el nav claro; en el footer oscuro solo va el wordmark */
+body.theme-wellness .brand-mark.logo-img { display: inline-block; width: 42px; height: 42px; padding: 0; background: transparent; border-radius: 0; object-fit: contain; box-shadow: none; filter: none; }
+body.theme-wellness .footer .brand-mark.logo-img { display: none; }
 
 /* ---------- BOTONES: CTA en terracota con texto tinta (AA 5.9:1) ---------- */
 body.theme-wellness .btn-primary { background: var(--accent); color: var(--ink); box-shadow: 0 10px 24px rgba(224,115,74,.26); }
@@ -107,11 +108,28 @@ body.theme-wellness .cta-wrap { background: linear-gradient(135deg, var(--brand)
 /* ---------- FOOTER: verde-carbon profundo (no negro azulado) ---------- */
 body.theme-wellness .footer { background: var(--ink); color: rgba(255,255,255,.75); }
 
-/* ---------- viales: fondo neutro calido detras del producto ---------- */
-body.theme-wellness .vial-fig img { background: #F2F5EF; }
+/* ---------- viales: más grandes + fondo neutro cálido detrás del producto ---------- */
+body.theme-wellness .three-vials { max-width: 920px; gap: 28px; }
+body.theme-wellness .vial-fig { padding: 24px 18px; }
+body.theme-wellness .vial-fig img { background: #F2F5EF; max-width: 210px; }
+body.theme-wellness .vial-fig figcaption strong { font-size: 1.1rem; }
 
 /* ---------- microcopy bajo los CTA del hero ---------- */
 .hero-microcopy { color: rgba(255,255,255,.82); font-size: .88rem; margin: 14px 0 24px; letter-spacing: .01em; }
+
+/* ---------- antes/después: 4 fotos (frente + perfil) por grupo ---------- */
+body.theme-wellness .ba-grid { max-width: 1000px; align-items: start; }
+body.theme-wellness .ba-group { display: flex; flex-direction: column; gap: 14px; }
+body.theme-wellness .ba-group .ba-tag { position: static; align-self: flex-start; box-shadow: var(--shadow-sm); }
+body.theme-wellness .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+body.theme-wellness .ba-pair .ba-fig { margin: 0; }
+body.theme-wellness .ba-pair .ba-fig img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+body.theme-wellness .ba-pair figcaption { text-align: center; font-size: .78rem; color: var(--muted); margin-top: 7px; font-family: "Sora", sans-serif; letter-spacing: .02em; }
+body.theme-wellness .ba-arrow { align-self: center; }
+@media (max-width: 820px) {
+  body.theme-wellness .ba-grid { grid-template-columns: 1fr; }
+  body.theme-wellness .ba-arrow { margin: 4px auto; }
+}
 
 /* ---------- bloque de referencia de resultados (no promesa) ---------- */
 .result-ref { max-width: 760px; margin: 26px auto 0; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow-sm); }
