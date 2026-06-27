@@ -5,3 +5,5 @@ data/glp1-fuentes-y-correcciones.md
 .surgeignore
 .DS_Store
 node_modules/
+assets/brand/concepts/
+data/glp1-rediseno-research.json
