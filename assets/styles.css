@@ -246,24 +246,27 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
 .pcard:hover::after { transform: scaleX(1); }
 .pcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
 .pcard-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.3rem; background: var(--mint-soft); }
-.pcard-molecule {
-  width: 78px;
-  height: 56px;
-  flex: 0 0 auto;
+.pcard-media {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface-2);
   display: grid;
   place-items: center;
-  border: 1px solid var(--line-soft);
-  border-radius: 12px;
-  background: #fff;
-  overflow: hidden;
 }
-.pcard-molecule img {
+.pcard-media .pcard-mol-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 5px;
-  background: #fff;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s var(--ease);
 }
+.pcard:hover .pcard-media .pcard-mol-img { transform: scale(1.05); }
+.pcard-media .badge { position: absolute; top: 10px; right: 10px; }
+.pcard-icon-lg { width: 64px; height: 64px; font-size: 2rem; border-radius: 16px; }
 .pcard h3 { margin: 0 0 2px; }
 .pcard .aka { color: var(--muted); font-size: .85rem; margin: 0 0 12px; }
 .pcard .goal { color: var(--ink-2); font-size: .96rem; margin: 0 0 16px; flex-grow: 1; }
@@ -540,8 +543,8 @@ form[data-signup] { margin-left: auto; margin-right: auto; }
 .footer { background: #060F1F; }
 .detail-hero { background: linear-gradient(180deg, rgba(61,165,240,.08), var(--bg)); }
 
-/* las estructuras químicas mantienen fondo claro para que la molécula se lea */
-.pcard-molecule, .pcard-molecule img, .mol-image, .mol-image img { background: #F4F8FF; }
+/* las representaciones moleculares mantienen fondo crema para fundirse con el render */
+.mol-image, .mol-image img { background: #F6F4EC; }
 
 /* =========================================================
    HERO con banner + LIQUID GLASS (inspiración Palantir / Apple)
