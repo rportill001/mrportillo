@@ -51,7 +51,7 @@ body .nav-links a:hover { color: var(--brand); }
 body .brand span { color: var(--ink); }
 body .brand small { color: var(--muted); }
 /* logo Brote Sagrado (Flor de la Vida) — full color sobre el nav claro; en el footer oscuro solo va el wordmark */
-body .brand-mark.logo-img { display: inline-block; width: 42px; height: 42px; padding: 0; background: transparent; border-radius: 0; object-fit: contain; box-shadow: none; filter: none; }
+body .brand-mark.logo-img { display: inline-block; width: 52px; height: 52px; padding: 0; background: transparent; border-radius: 0; object-fit: contain; box-shadow: none; filter: none; }
 body .footer .brand-mark.logo-img { display: none; }
 
 /* ---------- BOTONES: CTA en terracota con texto tinta (AA 5.9:1) ---------- */

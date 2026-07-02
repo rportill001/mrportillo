@@ -1,10 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0E7C66"/>
-      <stop offset="1" stop-color="#0B6E7A"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="url(#g)"/>
-  <text x="32" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700" fill="#fff" text-anchor="middle">Ψ</text>
+  <rect width="64" height="64" rx="16" fill="#2E6B4F"/>
+  <!-- brote simplificado: 2 hojas + pétalo central + botón terracota -->
+  <path d="M32 50 C 21 48, 13 40, 12 28 C 24 29, 31 38, 32 50 Z" fill="#EAF3EC"/>
+  <path d="M32 50 C 43 48, 51 40, 52 28 C 40 29, 33 38, 32 50 Z" fill="#EAF3EC"/>
+  <path d="M32 48 C 26 38, 26 27, 32 17 C 38 27, 38 38, 32 48 Z" fill="#F6F4EC"/>
+  <circle cx="32" cy="11" r="5" fill="#E0734A"/>
 </svg>
