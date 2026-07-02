@@ -380,14 +380,14 @@ form[data-signup] { margin-left: auto; margin-right: auto; }
 .aside-row span:last-child { font-weight:600; text-align:right; }
 .product-card { padding: 0; overflow: hidden; }
 .product-image {
-  background: #F6F4EC;
+  background: #E7E7E7;
   overflow: hidden;
   display: grid;
   place-items: center;
 }
 .product-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
 }

@@ -148,7 +148,7 @@ function detailPage(p) {
   const releaseLabel = { 1: "Release 1 · GH", 2: "Release 2 · Metabólico", 3: "Release 3 · Healing" }[p.release] || "—";
   const productCard = `      <div class="aside-card product-card">
         <div class="product-image">
-          <img src="/assets/images/vials/${p.category}.png" alt="Vial de ${esc(p.name)} — Péptidos Sin Caos" loading="lazy" />
+          <img src="/assets/images/vials/${p.slug}.png" alt="Vial de ${esc(p.name)} — Péptidos Sin Caos" loading="lazy" />
         </div>
         <div class="product-meta">
           <strong>${esc(p.name)}</strong>
