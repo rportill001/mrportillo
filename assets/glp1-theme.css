@@ -186,6 +186,5 @@ body .detail-hero { background: linear-gradient(180deg, rgba(46,107,79,.08), var
   body .nav-toggle { color: var(--ink); }
 }
 
-/* estructuras químicas: mantienen su lienzo claro cálido (ya casi blanco) */
-body .pcard-molecule, body .pcard-molecule img,
-body .mol-image, body .mol-image img { background: #F6F8F4; }
+/* representación molecular en la ficha: lienzo crema que se funde con el render 3D */
+body .mol-image, body .mol-image img { background: #F6F4EC; }
