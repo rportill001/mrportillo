@@ -15,7 +15,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const db = JSON.parse(readFileSync(join(ROOT, "data", "peptides.json"), "utf8"));
 const structures = JSON.parse(readFileSync(join(ROOT, "data", "structures.json"), "utf8"));
 const { peptides, categories, evidenceLevels } = db;
-const CAT_ORDER = ["gh", "metabolic", "healing"];
+const CAT_ORDER = ["metabolic", "gh", "healing"];
 
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const evClass = (lvl) => `ev-${lvl}`;
