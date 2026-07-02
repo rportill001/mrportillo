@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Péptidos Sin Caos — Brote Sagrado">
+  <defs>
+    <linearGradient id="verde" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2E6B4F"/>
+      <stop offset="1" stop-color="#4E9E72"/>
+    </linearGradient>
+  </defs>
+  <!-- anillo exterior -->
+  <circle cx="120" cy="126" r="106" fill="none" stroke="url(#verde)" stroke-width="7"/>
+  <!-- semilla de la vida: 1 círculo central + 6 alrededor -->
+  <g fill="none" stroke="url(#verde)" stroke-width="4.5" opacity="0.95">
+    <circle cx="120" cy="126" r="53"/>
+    <circle cx="120" cy="73"  r="53"/>
+    <circle cx="165.9" cy="99.5"  r="53"/>
+    <circle cx="165.9" cy="152.5" r="53"/>
+    <circle cx="120" cy="179" r="53"/>
+    <circle cx="74.1" cy="152.5" r="53"/>
+    <circle cx="74.1" cy="99.5"  r="53"/>
+  </g>
+  <!-- brote: tallo + hojas laterales + pétalo central -->
+  <g>
+    <!-- hojas laterales -->
+    <path d="M120 96 C 104 92, 94 80, 93 64 C 109 66, 118 78, 120 96 Z" fill="#2E6B4F"/>
+    <path d="M120 96 C 136 92, 146 80, 147 64 C 131 66, 122 78, 120 96 Z" fill="#2E6B4F"/>
+    <!-- pétalo central -->
+    <path d="M120 92 C 112 78, 112 62, 120 48 C 128 62, 128 78, 120 92 Z" fill="#3E8560"/>
+  </g>
+  <!-- botón terracota -->
+  <circle cx="120" cy="34" r="9" fill="#E0734A"/>
+</svg>
