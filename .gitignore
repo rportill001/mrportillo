@@ -8,3 +8,5 @@ node_modules/
 assets/brand/concepts/
 data/glp1-rediseno-research.json
 CONFIGURAR_CLOUDFLARE.md
+.export-token.local.txt
+.wrangler/
