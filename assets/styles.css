@@ -246,27 +246,34 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
 .pcard:hover::after { transform: scaleX(1); }
 .pcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
 .pcard-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.3rem; background: var(--mint-soft); }
-.pcard-media {
-  position: relative;
-  width: 100%;
-  height: 140px;
-  margin-bottom: 16px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--surface-2);
-  display: grid;
-  place-items: center;
-}
-.pcard-media .pcard-mol-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* ---------- tarjeta tile: la imagen ES toda la tarjeta, nombre superpuesto abajo ---------- */
+.pcard-tile {
   display: block;
-  transition: transform .4s var(--ease);
+  aspect-ratio: 1 / 1.04;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(165deg, #F6F4EC, #EAF3EC);
 }
-.pcard:hover .pcard-media .pcard-mol-img { transform: scale(1.05); }
-.pcard-media .badge { position: absolute; top: 10px; right: 10px; }
-.pcard-icon-lg { width: 64px; height: 64px; font-size: 2rem; border-radius: 16px; }
+.pcard-tile::after { display: none; }
+.pcard-tile .pcard-mol-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 74%;
+  object-fit: contain;
+  padding: 18px;
+  transition: transform .45s var(--ease);
+}
+.pcard-tile:hover .pcard-mol-img { transform: scale(1.06); }
+.pcard-tile .badge { position: absolute; top: 12px; right: 12px; z-index: 2; }
+.pcard-tile .pcard-tile-icon { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.6rem; }
+.pcard-tile .pcard-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 42px 16px 15px;
+  background: linear-gradient(to top, rgba(22,39,31,.84), rgba(22,39,31,.34) 52%, transparent);
+}
+.pcard-tile .pcard-cap h3 { margin: 0; color: #fff; font-size: 1.12rem; letter-spacing: -.01em; }
+.pcard-tile .pcard-cap .pcard-sub { margin: 3px 0 0; color: rgba(255,255,255,.86); font-size: .8rem; }
 .pcard h3 { margin: 0 0 2px; }
 .pcard .aka { color: var(--muted); font-size: .85rem; margin: 0 0 12px; }
 .pcard .goal { color: var(--ink-2); font-size: .96rem; margin: 0 0 16px; flex-grow: 1; }
