@@ -371,6 +371,27 @@ form[data-signup] { margin-left: auto; margin-right: auto; }
 .aside-row:first-of-type { border-top:0; }
 .aside-row span:first-child { color: var(--muted); }
 .aside-row span:last-child { font-weight:600; text-align:right; }
+.product-card { padding: 0; overflow: hidden; }
+.product-image {
+  background: #F6F4EC;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.product-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.product-meta {
+  border-top: 1px solid var(--line-soft);
+  padding: 14px 18px 16px;
+  display: grid;
+  gap: 4px;
+}
+.product-meta strong { font-family: "Sora",sans-serif; font-size: 1.02rem; }
+.product-meta span { color: var(--muted); font-size: .86rem; }
 .molecule-card { padding: 0; overflow: hidden; }
 .mol-top {
   display: flex;

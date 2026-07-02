@@ -148,6 +148,16 @@ function detailPage(p) {
   const chem = structures[p.slug];
   const risks = (p.risks || []).map((r) => `        <li>${esc(r)}</li>`).join("\n");
   const releaseLabel = { 1: "Release 1 · GH", 2: "Release 2 · Metabólico", 3: "Release 3 · Healing" }[p.release] || "—";
+  const productCard = `      <div class="aside-card product-card">
+        <div class="product-image">
+          <img src="/assets/images/vials/${p.category}.png" alt="Vial de ${esc(p.name)} — Péptidos Sin Caos" loading="lazy" />
+        </div>
+        <div class="product-meta">
+          <strong>${esc(p.name)}</strong>
+          <span>${cat.icon} ${esc(cat.label)}</span>
+        </div>
+      </div>
+`;
   const structureCard = chem ? `      <div class="aside-card molecule-card">
         <div class="mol-top">
           <h4>Representación molecular</h4>
@@ -211,7 +221,7 @@ ${risks}
     </div>
 
     <aside class="detail-aside">
-${structureCard}      <div class="aside-card structure-note">
+${productCard}${structureCard}      <div class="aside-card structure-note">
         <h4>Lectura correcta</h4>
         <p>La imagen molecular identifica el compuesto; no implica calidad, pureza, seguridad del vial ni que sea adecuado para una persona.</p>
       </div>
