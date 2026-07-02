@@ -66,18 +66,16 @@ const HEAD = (title, desc) => `<!DOCTYPE html>
 function card(p) {
   const cat = categories[p.category] || { label: "", icon: "" };
   const chem = structures[p.slug];
-  const visual = chem ? `<img class="pcard-mol-img" src="${esc(chem.image)}" alt="Representación molecular de ${esc(chem.label)}" loading="lazy" />` : `<div class="pcard-icon pcard-icon-lg">${cat.icon}</div>`;
-  return `      <a class="pcard" data-category="${p.category}" href="/peptides/${p.slug}/">
-        <div class="pcard-media">
-          ${visual}
-          <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
-        </div>
-        <h3>${esc(p.name)}</h3>
-        <p class="aka">${esc(p.aka || cat.label)}</p>
-        <p class="goal">${esc(p.goal)}</p>
-        <div class="pcard-foot">
-          <span class="cat-tag">${cat.icon} ${cat.label}</span>
-          <span class="more">Ver ficha →</span>
+  const sub = p.aka || cat.label;
+  const visual = chem
+    ? `<img class="pcard-mol-img" src="${esc(chem.image)}" alt="Representación molecular de ${esc(p.name)}" loading="lazy" />`
+    : `<div class="pcard-tile-icon">${cat.icon}</div>`;
+  return `      <a class="pcard pcard-tile" data-category="${p.category}" href="/peptides/${p.slug}/">
+        ${visual}
+        <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
+        <div class="pcard-cap">
+          <h3>${esc(p.name)}</h3>
+          <p class="pcard-sub">${esc(sub)}</p>
         </div>
       </a>`;
 }
