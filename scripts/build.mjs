@@ -23,6 +23,9 @@ const evLabel = (lvl) => evidenceLevels[lvl]?.label ?? lvl;
 const formula = (s = "") => esc(s).replace(/(\d+)/g, "<sub>$1</sub>");
 // negritas **texto** -> <strong>; cursivas *texto* -> <em>
 const md = (s = "") => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
+// icono de categoría: render 3D de marca (sustituye a los emojis)
+const catIcon = (key, cls = "") =>
+  `<img class="cat-ico${cls ? " " + cls : ""}" src="/assets/images/categories/${key}.png" alt="" aria-hidden="true" />`;
 
 const NAV = `<header class="nav">
   <div class="container nav-in">
@@ -65,11 +68,8 @@ const HEAD = (title, desc) => `<!DOCTYPE html>
 /* ---------- tarjeta de péptido ---------- */
 function card(p) {
   const cat = categories[p.category] || { label: "", icon: "" };
-  const chem = structures[p.slug];
   const sub = p.aka || cat.label;
-  const visual = chem
-    ? `<img class="pcard-mol-img" src="${esc(chem.image)}" alt="Representación molecular de ${esc(p.name)}" loading="lazy" />`
-    : `<div class="pcard-tile-icon">${cat.icon}</div>`;
+  const visual = `<img class="pcard-mol-img pcard-vial-img" src="/assets/images/vials/${p.slug}.png" alt="Vial de ${esc(p.name)} — Péptidos Sin Caos" loading="lazy" />`;
   return `      <a class="pcard pcard-tile" data-category="${p.category}" href="/peptides/${p.slug}/">
         ${visual}
         <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
@@ -85,7 +85,7 @@ function catTeaser(key) {
   const c = categories[key];
   const count = peptides.filter((p) => p.category === key).length;
   return `      <a class="cat-card" href="/peptidos/#${key}">
-        <div class="cat-ic">${c.icon}</div>
+        <div class="cat-ic">${catIcon(key)}</div>
         <h3>${esc(c.label)}</h3>
         <p>${esc(c.blurb)}</p>
         <span class="cat-count">${count} péptidos →</span>
@@ -99,7 +99,7 @@ function categoryBlock(key) {
   return `<section class="cat-section" id="${key}">
   <div class="container">
     <div class="cat-head">
-      <div class="pcard-icon">${c.icon}</div>
+      <div class="pcard-icon">${catIcon(key)}</div>
       <h2>${esc(c.label)}</h2>
     </div>
     <p class="cat-context">${md(c.context)}</p>
@@ -112,7 +112,7 @@ ${cards}
 
 /* ---------- página /peptidos/ (catálogo completo) ---------- */
 function peptidosIndex() {
-  const anchors = CAT_ORDER.map((k) => `<a class="chip" href="#${k}">${categories[k].icon} ${esc(categories[k].label)}</a>`).join("\n      ");
+  const anchors = CAT_ORDER.map((k) => `<a class="chip chip-ico" href="#${k}">${catIcon(k)}${esc(categories[k].label)}</a>`).join("\n      ");
   const blocks = CAT_ORDER.map(categoryBlock).join("\n");
   return `${HEAD("Biblioteca de péptidos — por categoría | Péptidos Sin Caos", "Explora los péptidos agrupados por categoría: hormona de crecimiento, metabólicos/GLP-1 y reparación. Objetivo, mecanismo, evidencia y riesgos de cada uno.")}
 ${NAV}
@@ -152,7 +152,7 @@ function detailPage(p) {
         </div>
         <div class="product-meta">
           <strong>${esc(p.name)}</strong>
-          <span>${cat.icon} ${esc(cat.label)}</span>
+          <span>${catIcon(p.category, "ico-inline")}${esc(cat.label)}</span>
         </div>
       </div>
 `;
@@ -178,13 +178,13 @@ ${NAV}
   <div class="container">
     <a class="back-link" href="/peptidos/">← Volver a la biblioteca</a>
     <div class="detail-head">
-      <div class="pcard-icon">${cat.icon}</div>
+      <div class="pcard-icon">${catIcon(p.category)}</div>
       <div>
         <h1>${esc(p.name)}</h1>
         ${p.aka ? `<p class="aka">también conocido como ${esc(p.aka)}</p>` : ""}
         <div class="detail-badges">
           <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
-          <span class="badge" style="color:var(--petrol);background:rgba(11,110,122,.10)">${cat.icon} ${cat.label}</span>
+          <span class="badge badge-ico" style="color:var(--petrol);background:rgba(11,110,122,.10)">${catIcon(p.category, "ico-inline")}${cat.label}</span>
         </div>
       </div>
     </div>

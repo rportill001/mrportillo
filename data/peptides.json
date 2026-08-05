@@ -14,19 +14,16 @@
   "categories": {
     "gh": {
       "label": "Hormona de crecimiento",
-      "icon": "⚡",
       "blurb": "Péptidos que reactivan tus propios pulsos de hormona de crecimiento.",
       "context": "La **hormona de crecimiento (GH)** es la señal que tu cuerpo usa para reparar tejido, recuperarse y mantener masa magra. Se libera en **pulsos**, sobre todo de noche, y llega a su pico en la juventud. A partir de los **~25–30 años empieza a declinar** (cerca de 1–2% por año), un fenómeno llamado *somatopausa*. Por eso muchas personas notan más cambios después de los 30: estos péptidos buscan **reactivar tus propios pulsos de GH** en vez de inyectar la hormona directa. Y la medida que de verdad importa no es \"más GH\", sino tu **IGF-1** — el promedio real de la actividad de la hormona de crecimiento en tu cuerpo."
     },
     "metabolic": {
       "label": "Metabólico / GLP-1",
-      "icon": "🔥",
       "blurb": "Compuestos ligados a pérdida de grasa, apetito y control de glucosa.",
       "context": "No todos los \"GLP\" son iguales. **GLP-1** significa *glucagon-like peptide-1*: una hormona del intestino que regula el **apetito, la saciedad y la glucosa**. La **semaglutida** imita esa sola hormona. La **tirzepatida** suma una segunda, **GIP**, por eso es un *agonista dual* y suele ser más potente. La **retatrutida** añade una tercera, el **glucagón** (que aumenta el gasto de energía), volviéndose un *triple agonista* — muy potente, pero todavía en investigación. Ojo: algunos ni siquiera son \"GLP\" (la cagrilintida es un análogo de amilina). El mecanismo, la evidencia y los riesgos **cambian en cada uno**."
     },
     "healing": {
       "label": "Reparación / Recovery",
-      "icon": "🌱",
       "blurb": "Péptidos asociados a recuperación de tejido, piel y articulaciones.",
       "context": "Los péptidos de reparación **no \"construyen músculo\" por sí solos**: actúan sobre las vías que el cuerpo usa para sanar — *angiogénesis* (formar vasos nuevos), migración de células y control de la inflamación. La mayor parte de su evidencia es **preclínica o de comunidad**, así que las expectativas deben ser realistas. Importan sobre todo cuando entrenas fuerte o te recuperas más lento — algo que se acentúa con la edad."
     }
