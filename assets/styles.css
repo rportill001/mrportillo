@@ -809,8 +809,21 @@ form[data-signup] { margin-left: auto; margin-right: auto; }
 .badge.badge-ico { display: inline-flex; align-items: center; gap: 5px; }
 .detail-head .pcard-icon .cat-ico, .cat-head .pcard-icon .cat-ico { padding: 7px; }
 
-/* ---------- tarjeta tile con vial de marca (sustituye a la molécula) ---------- */
-.pcard-tile .pcard-vial-img { height: 74%; padding: 20px 16px 0; }
+/* ---------- tarjeta tile con vial de marca (sustituye a la molécula) ----------
+   La tarjeta es más alta que ancha (formato producto) para que el frasco —muy
+   vertical— se dibuje grande: con la caja cuadrada anterior `contain` lo
+   limitaba por altura y el vial quedaba al 35% del ancho, con mucho aire. */
+.pcard-tile { aspect-ratio: 1 / 1.34; }
+.pcard-tile .pcard-vial-img { height: 80%; padding: 18px 14px 0; }
+
+/* badge de evidencia: legible sobre el vial y sobre el fondo claro de la
+   tarjeta — fondo sólido propio en vez del tinte al 14% */
+.badge { font-size: .765rem; padding: 6px 12px; }
+.pcard-tile .badge {
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 1px 3px rgba(22,39,31,.10);
+  backdrop-filter: saturate(140%) blur(3px);
+}
 
 /* vial de la ficha: fondo de marca en vez del gris, sin recortar el frasco */
 .product-image { background: linear-gradient(165deg, #F6F4EC, #EAF3EC); }

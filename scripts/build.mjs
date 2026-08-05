@@ -7,11 +7,26 @@
      - inyecta tarjetas de categoría en index.html (marcadores BUILD:CATS)
    Uso: node scripts/build.mjs
 */
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
+import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+
+/* Cache-busting del CSS. Cloudflare sirve /assets/*.css con max-age=14400, así
+   que sin versión en la URL un visitante que ya tenía el CSS viejo carga el HTML
+   nuevo con estilos viejos hasta 4 h (el 08-05 eso reventó los iconos de
+   categoría: sin reglas, la imagen salía a su tamaño natural de 400px). */
+const cssHash = (file) =>
+  createHash("md5").update(readFileSync(join(ROOT, "assets", file))).digest("hex").slice(0, 8);
+const CSS_V = { "styles.css": cssHash("styles.css"), "glp1-theme.css": cssHash("glp1-theme.css") };
+// el home enlaza el CSS con ruta relativa (assets/…) y el resto con absoluta (/assets/…)
+const versionCss = (html) =>
+  html.replace(
+    /(href="\/?assets\/(styles|glp1-theme)\.css)(\?v=[a-f0-9]+)?"/g,
+    (_, head, name) => `${head}?v=${CSS_V[name + ".css"]}"`
+  );
 const db = JSON.parse(readFileSync(join(ROOT, "data", "peptides.json"), "utf8"));
 const structures = JSON.parse(readFileSync(join(ROOT, "data", "structures.json"), "utf8"));
 const { peptides, categories, evidenceLevels } = db;
@@ -60,8 +75,8 @@ const HEAD = (title, desc) => `<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/styles.css" />
-<link rel="stylesheet" href="/assets/glp1-theme.css" />
+<link rel="stylesheet" href="/assets/styles.css?v=${CSS_V["styles.css"]}" />
+<link rel="stylesheet" href="/assets/glp1-theme.css?v=${CSS_V["glp1-theme.css"]}" />
 </head>
 <body>`;
 
@@ -184,7 +199,7 @@ ${NAV}
         ${p.aka ? `<p class="aka">también conocido como ${esc(p.aka)}</p>` : ""}
         <div class="detail-badges">
           <span class="badge ${evClass(p.evidenceLevel)}">${evLabel(p.evidenceLevel)}</span>
-          <span class="badge badge-ico" style="color:var(--petrol);background:rgba(11,110,122,.10)">${catIcon(p.category, "ico-inline")}${cat.label}</span>
+          <span class="badge badge-ico" style="color:var(--brand-deep);background:rgba(31,77,56,.12)">${catIcon(p.category, "ico-inline")}${cat.label}</span>
         </div>
       </div>
     </div>
@@ -279,6 +294,28 @@ if (/<!-- BUILD:CATS:START -->[\s\S]*?<!-- BUILD:CATS:END -->/.test(index)) {
 } else {
   console.log("⚠ no se encontraron marcadores BUILD:CATS en index.html (revisar home)");
 }
+
+// sellar la versión del CSS en las páginas escritas a mano (home, /glp1/, /guia/)
+const SKIP_DIRS = new Set(["node_modules", ".git", ".wrangler", "assets", "data", "scripts", "functions"]);
+function htmlFiles(dir) {
+  return readdirSync(dir).flatMap((name) => {
+    if (name.startsWith(".") || SKIP_DIRS.has(name)) return [];
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) return htmlFiles(full);
+    return name.endsWith(".html") ? [full] : [];
+  });
+}
+let stamped = 0;
+for (const file of htmlFiles(ROOT)) {
+  const html = readFileSync(file, "utf8");
+  const out = versionCss(html);
+  if (out !== html) {
+    writeFileSync(file, out, "utf8");
+    console.log(`  · versión de CSS sellada en /${relative(ROOT, file)}`);
+    stamped++;
+  }
+}
+console.log(`✓ CSS versionado (styles ${CSS_V["styles.css"]}, theme ${CSS_V["glp1-theme.css"]}) — ${stamped} páginas actualizadas`);
 
 console.log(`✓ ${count} fichas de péptido generadas en /peptides/`);
 console.log(`✓ /peptidos/ generado (catálogo por categoría: ${CAT_ORDER.length} categorías)`);

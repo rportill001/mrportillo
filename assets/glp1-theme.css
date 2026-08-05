@@ -31,10 +31,10 @@
   --mint-soft:  #EAF3EC;
 
   /* evidencia — sobrios sobre claro */
-  --ev-establecido: #2E6B4F;
-  --ev-clinico:     #3E7E8C;
-  --ev-comunidad:   #C98A3C;
-  --ev-especulativo:#5C6E63;
+  --ev-establecido: #24583F;
+  --ev-clinico:     #2C5F6C;
+  --ev-comunidad:   #8A5A18;
+  --ev-especulativo:#4A5A50;
 
   /* sombras suaves verde-gris (no negro duro) */
   --shadow-sm: 0 1px 2px rgba(22,39,31,.07), 0 2px 8px rgba(22,39,31,.05);
@@ -86,10 +86,10 @@ body .hero h1 span { background: linear-gradient(120deg, #C9EBD5, #FFFFFF 42%, #
 body .eyebrow::before { background: var(--accent); }
 
 /* ---------- BADGES de evidencia sobre claro ---------- */
-body .ev-establecido { color: var(--ev-establecido); background: rgba(46,107,79,.12); }
-body .ev-clinico     { color: var(--ev-clinico);     background: rgba(62,126,140,.12); }
-body .ev-comunidad   { color: var(--ev-comunidad);   background: rgba(201,138,60,.14); }
-body .ev-especulativo{ color: var(--ev-especulativo);background: rgba(92,110,99,.14); }
+body .ev-establecido { color: var(--ev-establecido); background: rgba(36,88,63,.14); }
+body .ev-clinico     { color: var(--ev-clinico);     background: rgba(44,95,108,.14); }
+body .ev-comunidad   { color: var(--ev-comunidad);   background: rgba(138,90,24,.14); }
+body .ev-especulativo{ color: var(--ev-especulativo);background: rgba(74,90,80,.14); }
 
 /* ---------- TARJETAS: glints verdes en vez de azules + bordes destacados ---------- */
 /* stat-card tenia fondo navy hardcodeado -> superficie clara */
