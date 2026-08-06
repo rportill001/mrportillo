@@ -1,0 +1,4 @@
+# La landing de GLP-1 pasó a ser la portada (2026-08-06). Se conserva el 301
+# para no perder los enlaces viejos ni la autoridad de búsqueda de /glp1/.
+/glp1      /   301
+/glp1/*    /   301
