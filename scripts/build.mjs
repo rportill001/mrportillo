@@ -61,9 +61,8 @@ const NAV = `<header class="nav">
   <div class="container nav-in">
     <a class="brand" href="/"><img class="brand-mark logo-img" src="/assets/brand/logo-brote.svg" alt="Péptidos Sin Caos" /><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
     <nav class="nav-links">
-      <a href="/">GLP-1 / Bajar de peso</a>
-      <a href="/peptidos/">Péptidos</a>
       <a href="/glp1/">Cómo funciona</a>
+      <a href="/peptidos/">Péptidos</a>
       <a href="/guia/">La guía</a>
     </nav>
     <div class="nav-cta"><a class="btn btn-primary" href="/guia/">Ver la guía · $29</a></div>
