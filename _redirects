@@ -1,4 +1,4 @@
-# La landing de GLP-1 pasó a ser la portada (2026-08-06). Se conserva el 301
-# para no perder los enlaces viejos ni la autoridad de búsqueda de /glp1/.
-/glp1      /   301
-/glp1/*    /   301
+# (sin redirecciones activas)
+# Histórico: entre el 6-ago-2026 y ese mismo día /glp1/ redirigió a "/" cuando la
+# landing de GLP-1 pasó a ser la portada. Se revirtió: /glp1/ ahora aloja el home
+# anterior (criterio + biblioteca), así que no debe redirigir.
