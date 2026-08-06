@@ -61,7 +61,7 @@ const NAV = `<header class="nav">
   <div class="container nav-in">
     <a class="brand" href="/"><img class="brand-mark logo-img" src="/assets/brand/logo-brote.svg" alt="Péptidos Sin Caos" /><span>Péptidos Sin Caos<small>por Roberto Portillo</small></span></a>
     <nav class="nav-links">
-      <a href="/glp1/">GLP-1 / Bajar de peso</a>
+      <a href="/">GLP-1 / Bajar de peso</a>
       <a href="/peptidos/">Péptidos</a>
       <a href="/#como">Cómo funciona</a>
       <a href="/guia/">La guía</a>
@@ -73,7 +73,7 @@ const NAV = `<header class="nav">
 const FOOT = `<footer class="footer">
   <div class="container">
     <div class="footer-bottom" style="border:0;padding-top:0">
-      <span>© 2026 Roberto Portillo · mrportillo.com</span>
+      <span>© 2026 Roberto Portillo · peptidossincaos.com</span>
       <a href="/" style="color:var(--teal)">← Inicio</a>
     </div>
   </div>
