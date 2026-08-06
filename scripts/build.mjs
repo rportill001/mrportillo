@@ -38,9 +38,24 @@ const evLabel = (lvl) => evidenceLevels[lvl]?.label ?? lvl;
 const formula = (s = "") => esc(s).replace(/(\d+)/g, "<sub>$1</sub>");
 // negritas **texto** -> <strong>; cursivas *texto* -> <em>
 const md = (s = "") => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
-// icono de categoría: render 3D de marca (sustituye a los emojis)
+/* Iconos de categoría: SVG monolínea en línea (sustituyen a los renders 3D).
+   Cada uno representa lo que la persona SIENTE, no el mecanismo:
+     metabolic -> llama: quemar, apetito, energía
+     gh        -> luna: la GH se libera en pulsos mientras dormís (está en el propio copy)
+     healing   -> curita: reparar, sanar
+   Van en línea y no como <img> para que hereden el color por CSS (currentColor),
+   pesen cero peticiones y queden nítidos a cualquier tamaño. */
+const ICON_PATHS = {
+  metabolic: `<path d="M12 2.9c2.9 3.2 4.6 5.8 4.6 8.6a4.6 4.6 0 1 1-9.2 0c0-1.5.6-2.9 1.6-4 .2 1 .7 1.8 1.4 2.2.2-2.6.7-4.8 1.6-6.8Z"/><path class="ico-acc" d="M12 20.3a2.3 2.3 0 0 0 2.3-2.3c0-1.3-1.1-2.1-2.3-3.8-1.2 1.7-2.3 2.5-2.3 3.8a2.3 2.3 0 0 0 2.3 2.3Z"/>`,
+  gh: `<path d="M20.4 14.2A8.5 8.5 0 0 1 9.8 3.6a7.6 7.6 0 1 0 10.6 10.6Z"/><path class="ico-acc" d="M17.6 3.4v3.2M16 5h3.2"/>`,
+  healing: `<g transform="rotate(-45 12 12)"><rect x="1.7" y="8.4" width="20.6" height="7.2" rx="3.6"/><rect x="8.4" y="8.4" width="7.2" height="7.2"/></g><g class="ico-acc"><path d="M10.6 12h.01M13.4 12h.01M12 10.6h.01M12 13.4h.01"/></g>`,
+  // iconos del bloque "Cómo funciona" del home
+  evidencia: `<path d="M3 19h4.5v-4H12v-4h4.5V7H21"/><path class="ico-acc" d="M21 7h.01"/>`,
+  riesgos: `<path d="M2.6 12S6.2 5.8 12 5.8 21.4 12 21.4 12 17.8 18.2 12 18.2 2.6 12 2.6 12Z"/><circle class="ico-acc" cx="12" cy="12" r="2.9"/>`,
+  preguntas: `<path d="M4 6.6A2.6 2.6 0 0 1 6.6 4h10.8A2.6 2.6 0 0 1 20 6.6v6.8a2.6 2.6 0 0 1-2.6 2.6h-6L7 19.6V16h-.4A2.6 2.6 0 0 1 4 13.4Z"/><g class="ico-acc"><path d="M9 10h.01M12 10h.01M15 10h.01"/></g>`,
+};
 const catIcon = (key, cls = "") =>
-  `<img class="cat-ico${cls ? " " + cls : ""}" src="/assets/images/categories/${key}.png" alt="" aria-hidden="true" />`;
+  `<svg class="cat-ico${cls ? " " + cls : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICON_PATHS[key] || ""}</svg>`;
 
 const NAV = `<header class="nav">
   <div class="container nav-in">
@@ -171,19 +186,13 @@ function detailPage(p) {
         </div>
       </div>
 `;
-  const structureCard = chem ? `      <div class="aside-card molecule-card">
-        <div class="mol-top">
-          <h4>Representación molecular</h4>
-        </div>
-        <div class="mol-image">
-          <img src="${esc(chem.image)}" alt="Estructura química de ${esc(chem.label)}" loading="lazy" />
-        </div>
-        <div class="mol-meta">
-          <strong>${esc(chem.label)}</strong>
-          <span>${formula(chem.formula)} · ${esc(chem.molecularWeight)} Da</span>
-          <a href="${esc(chem.sourceUrl)}" target="_blank" rel="noopener noreferrer">PubChem CID ${esc(chem.cid)}</a>
-        </div>
-      </div>
+  /* Se quitó la imagen molecular: era un render decorativo que no correspondía a la
+     molécula real y, en una marca que enseña a leer evidencia, eso resta más de lo que
+     suma. El DATO sí se queda —fórmula, peso y el enlace a PubChem son verificables—
+     pero como texto dentro de la ficha rápida. */
+  const chemRows = chem ? `        <div class="aside-row"><span>Fórmula</span><span>${formula(chem.formula)}</span></div>
+        <div class="aside-row"><span>Peso molecular</span><span>${esc(chem.molecularWeight)} Da</span></div>
+        <div class="aside-row"><span>Referencia</span><span><a href="${esc(chem.sourceUrl)}" target="_blank" rel="noopener noreferrer">PubChem ${esc(chem.cid)}</a></span></div>
 ` : "";
   return `${HEAD(`${p.name} — qué es, mecanismo, evidencia y riesgos | Péptidos Sin Caos`, `${p.name}: ${p.goal}. ${p.mechanism} Nivel de evidencia: ${evLabel(p.evidenceLevel)}. Información educativa.`)}
 
@@ -234,9 +243,9 @@ ${risks}
     </div>
 
     <aside class="detail-aside">
-${productCard}${structureCard}      <div class="aside-card structure-note">
+${productCard}      <div class="aside-card structure-note">
         <h4>Lectura correcta</h4>
-        <p>La imagen molecular identifica el compuesto; no implica calidad, pureza, seguridad del vial ni que sea adecuado para una persona.</p>
+        <p>Identificar el compuesto no dice nada sobre la calidad, la pureza ni la seguridad de un vial concreto, y menos aún sobre si le conviene a una persona.</p>
       </div>
       <div class="aside-card">
         <h4>Ficha rápida</h4>
@@ -244,7 +253,7 @@ ${productCard}${structureCard}      <div class="aside-card structure-note">
         <div class="aside-row"><span>Evidencia</span><span>${evLabel(p.evidenceLevel)}</span></div>
         <div class="aside-row"><span>Prioridad</span><span>${esc(p.priority)}</span></div>
         <div class="aside-row"><span>Módulo</span><span>${releaseLabel}</span></div>
-      </div>
+${chemRows}      </div>
       <div class="aside-card aside-cta">
         <h4>¿Quieres el panorama completo?</h4>
         <p>La guía <strong>Péptidos Sin Caos</strong> reúne fundamentos, unidades, reconstitución segura y triage de efectos en un solo lugar.</p>

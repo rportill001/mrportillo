@@ -11,3 +11,9 @@ CONFIGURAR_CLOUDFLARE.md
 .export-token.local.txt
 .wrangler/
 VIAL_TEMPLATE.md
+
+# Carpetas de trabajo local — NO publicar (el repo es público)
+# guia-glp/ es el borrador del producto a vender; etiquetas-vial/ son artes de etiqueta.
+guia-glp/
+etiquetas-vial/
+_tmp-*.html
