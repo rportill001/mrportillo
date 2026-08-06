@@ -63,7 +63,7 @@ const NAV = `<header class="nav">
     <nav class="nav-links">
       <a href="/">GLP-1 / Bajar de peso</a>
       <a href="/peptidos/">Péptidos</a>
-      <a href="/#como">Cómo funciona</a>
+      <a href="/glp1/">Cómo funciona</a>
       <a href="/guia/">La guía</a>
     </nav>
     <div class="nav-cta"><a class="btn btn-primary" href="/guia/">Ver la guía · $29</a></div>
@@ -289,22 +289,6 @@ for (const p of peptides) {
 mkdirSync(join(ROOT, "peptidos"), { recursive: true });
 writeFileSync(join(ROOT, "peptidos", "index.html"), peptidosIndex(), "utf8");
 
-// inyectar tarjetas de categoría en el home
-const teasers = CAT_ORDER.map(catTeaser).join("\n");
-const indexPath = join(ROOT, "index.html");
-let index = readFileSync(indexPath, "utf8");
-if (/<!-- BUILD:CATS:START -->[\s\S]*?<!-- BUILD:CATS:END -->/.test(index)) {
-  index = index.replace(
-    /<!-- BUILD:CATS:START -->[\s\S]*?<!-- BUILD:CATS:END -->/,
-    `<!-- BUILD:CATS:START -->\n${teasers}\n      <!-- BUILD:CATS:END -->`
-  );
-  writeFileSync(indexPath, index, "utf8");
-  console.log("✓ tarjetas de categoría inyectadas en index.html");
-} else {
-  console.log("⚠ no se encontraron marcadores BUILD:CATS en index.html (revisar home)");
-}
-
-// sellar la versión del CSS en las páginas escritas a mano (home, /glp1/, /guia/)
 const SKIP_DIRS = new Set(["node_modules", ".git", ".wrangler", "assets", "data", "scripts", "functions"]);
 function htmlFiles(dir) {
   return readdirSync(dir).flatMap((name) => {
@@ -314,6 +298,24 @@ function htmlFiles(dir) {
     return name.endsWith(".html") ? [full] : [];
   });
 }
+
+/* Tarjetas de categoría: se inyectan en CUALQUIER página que tenga los marcadores,
+   no solo en el home. Antes estaban cableadas a index.html y al mover ese bloque a
+   /glp1/ se habrían quedado congeladas. */
+const teasers = CAT_ORDER.map(catTeaser).join("\n");
+const CATS_RE = /<!-- BUILD:CATS:START -->[\s\S]*?<!-- BUILD:CATS:END -->/;
+let injected = 0;
+for (const file of htmlFiles(ROOT)) {
+  const html = readFileSync(file, "utf8");
+  if (!CATS_RE.test(html)) continue;
+  writeFileSync(file, html.replace(CATS_RE,
+    `<!-- BUILD:CATS:START -->\n${teasers}\n      <!-- BUILD:CATS:END -->`), "utf8");
+  console.log(`✓ tarjetas de categoría inyectadas en /${relative(ROOT, file)}`);
+  injected++;
+}
+if (!injected) console.log("⚠ ninguna página tiene marcadores BUILD:CATS (revisar)");
+
+// sellar la versión del CSS en las páginas escritas a mano
 let stamped = 0;
 for (const file of htmlFiles(ROOT)) {
   const html = readFileSync(file, "utf8");
